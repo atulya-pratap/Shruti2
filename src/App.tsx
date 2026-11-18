@@ -377,6 +377,10 @@ class RoyalAudioEngine {
 
   dispose() {
     this.isPlaying = false;
+    if (this.bgmAudio) {
+      this.bgmAudio.pause();
+      this.bgmAudio = null;
+    }
     if (this.loopTimer) clearInterval(this.loopTimer);
     if (this.ctx) {
       this.ctx.close().catch(() => {});
