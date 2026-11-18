@@ -2803,7 +2803,7 @@ export default function App() {
               THE ROYAL PORTRAIT HALL
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-[#f3e5ab] italic mb-5">
-              "Every kingdom deserves its own masterpiece."
+              "Some princess wear tikas."
             </h3>
 
             <div className="mx-auto w-60 h-72 sm:w-64 sm:h-80 border-4 border-[#d4af37] bg-[#3b0a18] rounded-sm overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.3)] mb-5 flex items-center justify-center">
