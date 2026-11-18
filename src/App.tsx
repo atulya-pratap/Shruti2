@@ -27,8 +27,7 @@ const INITIAL_MEMORIES = [
     code: 'MEMORY 01',
     title: 'Your smile is contagious.',
     subtitle: 'Chapter I of the Royal Archives',
-    caption:
-      'ou have a way of making ordinary moments feel special.',
+    caption: 'You have a way of making ordinary moments feel special.',
     date: 'The First Royal Chronicle',
     position: { x: -8.6, y: 4.5, z: 18, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: 18 },
@@ -41,8 +40,7 @@ const INITIAL_MEMORIES = [
     code: 'MEMORY 02',
     title: 'You are incredibly intelligent.',
     subtitle: 'Chapter II of the Royal Archives',
-    caption:
-      'Never forget how brilliant that mind of yours is.',
+    caption: 'Never forget how brilliant that mind of yours is.',
     date: 'Golden Afternoon Echoes',
     position: { x: 8.6, y: 4.5, z: 12, rotY: -Math.PI / 2 },
     viewPos: { x: 3.2, y: 4.4, z: 12 },
@@ -55,8 +53,7 @@ const INITIAL_MEMORIES = [
     code: 'MEMORY 03',
     title: 'You are a whole princess.',
     subtitle: 'Chapter III of the Royal Archives',
-    caption:
-      'A little sass, a lot of grace, and endless charm. 👑',
+    caption: 'A little sass, a lot of grace, and endless charm. 👑',
     date: 'The Sweetest Decree',
     position: { x: -8.6, y: 4.5, z: 4, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: 4 },
@@ -67,10 +64,10 @@ const INITIAL_MEMORIES = [
   {
     id: 4,
     code: 'MEMORY 04',
-    title: 'You are prettier than you realise."One thing I genuinely admire about you is your maturity. The way you understand things, handle situations and see beyond the obvious is something worth appreciating. You have a thoughtful side that makes you wiser than you probably give yourself credit for. Never lose that." 💗',
+    title: 'You are prettier than you realise.',
     subtitle: 'Chapter IV of the Royal Archives',
     caption:
-      'And its not just about your appearance.',
+      'And it’s not just about your appearance. "One thing I genuinely admire about you is your maturity. The way you understand things, handle situations and see beyond the obvious is something worth appreciating. You have a thoughtful side that makes you wiser than you probably give yourself credit for. Never lose that." 💗',
     date: 'Timeless Horizons',
     position: { x: 8.6, y: 4.5, z: -4, rotY: -Math.PI / 2 },
     viewPos: { x: 3.2, y: 4.4, z: -4 },
@@ -83,8 +80,7 @@ const INITIAL_MEMORIES = [
     code: 'MEMORY 05',
     title: 'You are effortlessly charming.',
     subtitle: 'Chapter V of the Royal Archives',
-    caption:
-      'You dont even realise how lovely your presence is.',
+    caption: 'You don’t even realise how lovely your presence is.',
     date: 'Forever & Always',
     position: { x: -8.6, y: 4.5, z: -12.5, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: -12.5 },
@@ -305,7 +301,6 @@ class RoyalAudioEngine {
     if (!this.ctx || !this.sfxEnabled || this.isMuted) return;
     const now = this.ctx.currentTime;
 
-    // Deep ceremonial bass swell + golden chime
     const bass = this.ctx.createOscillator();
     const bassEnv = this.ctx.createGain();
     bass.type = 'triangle';
@@ -328,7 +323,6 @@ class RoyalAudioEngine {
     this.init();
     if (!this.ctx || this.isMuted) return;
     const now = this.ctx.currentTime;
-    // Triumphant Royal Fanfare & Orchestral Swell
     const fanfare = [
       { f: 261.63, t: 0, d: 1.8 },
       { f: 329.63, t: 0.15, d: 1.8 },
@@ -397,7 +391,6 @@ function createMarbleTexture() {
   canvas.height = 512;
   const ctx = canvas.getContext('2d');
 
-  // Warm royal cream marble tiles with subtle gold & burgundy borders
   ctx.fillStyle = '#f6efe6';
   ctx.fillRect(0, 0, 512, 512);
 
@@ -408,14 +401,12 @@ function createMarbleTexture() {
       ctx.fillStyle = isAlt ? '#eadbc8' : '#fbf7f2';
       ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
 
-      // Subtle diamond inlay
       ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
       ctx.lineWidth = 2;
       ctx.strokeRect(x * tileSize + 4, y * tileSize + 4, tileSize - 8, tileSize - 8);
     }
   }
 
-  // Soft marble veining
   ctx.strokeStyle = 'rgba(180, 150, 130, 0.16)';
   ctx.lineWidth = 1.5;
   for (let i = 0; i < 18; i++) {
@@ -433,7 +424,6 @@ function createMarbleTexture() {
   }
 
   const tex = new THREE.CanvasTexture(canvas);
-
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
@@ -447,11 +437,9 @@ function createCarpetTexture() {
   canvas.height = 512;
   const ctx = canvas.getContext('2d');
 
-  // Deep royal burgundy runner
   ctx.fillStyle = '#4a0e1e';
   ctx.fillRect(0, 0, 256, 512);
 
-  // Antique gold side borders
   ctx.fillStyle = '#d4af37';
   ctx.fillRect(10, 0, 8, 512);
   ctx.fillRect(238, 0, 8, 512);
@@ -459,7 +447,6 @@ function createCarpetTexture() {
   ctx.fillRect(24, 0, 3, 512);
   ctx.fillRect(229, 0, 3, 512);
 
-  // Damask floral motif along center
   ctx.strokeStyle = 'rgba(212, 175, 55, 0.25)';
   ctx.lineWidth = 2;
   for (let y = 32; y < 512; y += 64) {
@@ -469,7 +456,6 @@ function createCarpetTexture() {
   }
 
   const tex = new THREE.CanvasTexture(canvas);
-
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
@@ -483,7 +469,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
   canvas.height = 640;
   const ctx = canvas.getContext('2d');
 
-  // Background gradient
   const grad = ctx.createLinearGradient(0, 0, 512, 640);
   grad.addColorStop(0, memory.themeColors[0]);
   grad.addColorStop(0.6, '#2a0812');
@@ -491,7 +476,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 512, 640);
 
-  // Ornate inner gold border
   ctx.strokeStyle = '#d4af37';
   ctx.lineWidth = 8;
   ctx.strokeRect(20, 20, 472, 600);
@@ -500,7 +484,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
   ctx.strokeRect(32, 32, 448, 576);
 
   if (loadedImg) {
-    // Draw user's custom uploaded photograph preserving aspect ratio (cover)
     ctx.save();
     ctx.beginPath();
     ctx.rect(36, 36, 440, 460);
@@ -523,7 +506,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
     ctx.drawImage(loadedImg, offsetX, offsetY, drawW, drawH);
     ctx.restore();
   } else {
-    // Elegant Royal Illustrated Placeholder
     const glow = ctx.createRadialGradient(256, 250, 20, 256, 250, 210);
     glow.addColorStop(0, 'rgba(243, 229, 171, 0.35)');
     glow.addColorStop(0.5, 'rgba(216, 167, 177, 0.15)');
@@ -531,13 +513,11 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
     ctx.fillStyle = glow;
     ctx.fillRect(40, 40, 432, 440);
 
-    // Decorative emblem illustration
     ctx.save();
     ctx.translate(256, 235);
     ctx.strokeStyle = '#f3e5ab';
     ctx.lineWidth = 3;
 
-    // Outer celestial ring
     ctx.beginPath();
     ctx.arc(0, 0, 88, 0, Math.PI * 2);
     ctx.stroke();
@@ -547,7 +527,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
     ctx.arc(0, 0, 104, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Crown / motif silhouette in center
     ctx.fillStyle = '#d4af37';
     ctx.beginPath();
     ctx.moveTo(-45, 25);
@@ -562,7 +541,6 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
     ctx.restore();
   }
 
-  // Bottom plaque caption bar inside frame
   ctx.fillStyle = 'rgba(26, 5, 11, 0.92)';
   ctx.fillRect(36, 496, 440, 108);
   ctx.strokeStyle = '#d4af37';
@@ -575,15 +553,16 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
   ctx.fillText(memory.code, 256, 530);
 
   ctx.fillStyle = '#fdfbf7';
-  ctx.font = 'bold 22px Georgia, serif';
-  ctx.fillText(memory.title, 256, 562);
+  ctx.font = 'bold 20px Georgia, serif';
+  const shortTitle =
+    memory.title.length > 34 ? memory.title.slice(0, 32) + '...' : memory.title;
+  ctx.fillText(shortTitle, 256, 562);
 
   ctx.fillStyle = '#e8b4bc';
   ctx.font = 'italic 15px Georgia, serif';
-  ctx.fillText('Click to Open Royal Memory', 256, 588);
+  ctx.fillText('Tap to Open Royal Memory', 256, 588);
 
   const tex = new THREE.CanvasTexture(canvas);
-
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.needsUpdate = true;
   return tex;
@@ -595,7 +574,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
   canvas.height = 780;
   const ctx = canvas.getContext('2d');
 
-  // Rich burgundy & antique gold oil-painting backdrop
   const bg = ctx.createRadialGradient(300, 340, 40, 300, 360, 420);
   bg.addColorStop(0, '#631429');
   bg.addColorStop(0.55, '#3b0a18');
@@ -603,7 +581,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, 600, 780);
 
-  // Ornate inner frame matting
   ctx.strokeStyle = '#d4af37';
   ctx.lineWidth = 12;
   ctx.strokeRect(24, 24, 552, 732);
@@ -612,7 +589,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
   ctx.strokeRect(40, 40, 520, 700);
 
   if (loadedImg) {
-    // Natural, un-distorted display of Shruti's uploaded portrait
     ctx.save();
     ctx.beginPath();
     ctx.rect(46, 46, 508, 575);
@@ -637,7 +613,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
     ctx.drawImage(loadedImg, offsetX, offsetY, drawW, drawH);
     ctx.restore();
   } else {
-    // Dignified Royal Masterpiece Placeholder waiting for Shruti's photograph
     const halo = ctx.createRadialGradient(300, 290, 15, 300, 290, 190);
     halo.addColorStop(0, 'rgba(243, 229, 171, 0.45)');
     halo.addColorStop(0.6, 'rgba(212, 175, 55, 0.14)');
@@ -645,14 +620,12 @@ function createRoyalPortraitTexture(loadedImg = null) {
     ctx.fillStyle = halo;
     ctx.fillRect(50, 50, 500, 540);
 
-    // Ornate oval cameo border
     ctx.strokeStyle = '#d4af37';
     ctx.lineWidth = 5;
     ctx.beginPath();
     ctx.ellipse(300, 300, 145, 185, 0, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Royal Crown above monogram
     ctx.save();
     ctx.translate(300, 200);
     ctx.fillStyle = '#f3e5ab';
@@ -668,7 +641,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
     ctx.fill();
     ctx.restore();
 
-    // Calligraphic Monogram 'S'
     ctx.fillStyle = '#fdfbf7';
     ctx.font = 'italic bold 120px Georgia, serif';
     ctx.textAlign = 'center';
@@ -679,7 +651,6 @@ function createRoyalPortraitTexture(loadedImg = null) {
     ctx.fillText('Her Royal Highness', 300, 425);
   }
 
-  // Nameplate at bottom of portrait
   ctx.fillStyle = 'rgba(24, 4, 10, 0.95)';
   ctx.fillRect(46, 624, 508, 110);
   ctx.strokeStyle = '#d4af37';
@@ -697,16 +668,14 @@ function createRoyalPortraitTexture(loadedImg = null) {
 
   ctx.fillStyle = '#e8b4bc';
   ctx.font = 'italic 15px Georgia, serif';
-  ctx.fillText('Click to Inspect or Upload Royal Portrait', 300, 722);
+  ctx.fillText('Tap to Inspect or Upload Royal Portrait', 300, 722);
 
   const tex = new THREE.CanvasTexture(canvas);
-
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.needsUpdate = true;
   return tex;
 }
 
-// Fallback shown when a photo file is missing
 const PLACEHOLDER_IMG =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
@@ -725,14 +694,12 @@ const handleImgError = (e) => {
 // MAIN APPLICATION COMPONENT
 // ============================================================================
 export default function App() {
-  // Experience stages: 'invitation' -> 'cinematic_intro' -> 'exploring' -> 'final_reveal'
   const [stage, setStage] = useState('invitation');
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [activeWaypoint, setActiveWaypoint] = useState('exterior');
   const [doorsOpened, setDoorsOpened] = useState(false);
   const [crownClaimed, setCrownClaimed] = useState(false);
 
-  // Interactive Modals & Focused Prompts
   const [nearbyPrompt, setNearbyPrompt] = useState(null);
   const [activeMemoryIndex, setActiveMemoryIndex] = useState(null);
   const [portraitModalOpen, setPortraitModalOpen] = useState(false);
@@ -742,17 +709,14 @@ export default function App() {
   const [controlsModalOpen, setControlsModalOpen] = useState(false);
   const [crownRevealCardOpen, setCrownRevealCardOpen] = useState(false);
 
-  // Customizable Memories & Shruti's Portrait State
   const [memories, setMemories] = useState(INITIAL_MEMORIES);
   const [shrutiPortraitUrl, setShrutiPortraitUrl] = useState('./photo6.jpg');
-  
-  // Audio State
+
   const [isMuted, setIsMuted] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.55);
   const [sfxEnabled, setSfxEnabled] = useState(true);
   const [webglError, setWebglError] = useState(false);
 
-  // Refs for Three.js scene & live interaction
   const mountRef = useRef(null);
   const audioRef = useRef(null);
   const sceneObjectsRef = useRef({
@@ -775,7 +739,6 @@ export default function App() {
   });
   const handlersRef = useRef({});
 
-  // Initialize Audio Engine ref
   useEffect(() => {
     audioRef.current = new RoyalAudioEngine();
     return () => {
@@ -783,7 +746,6 @@ export default function App() {
     };
   }, []);
 
-  // Opening Sequence Progress Bar Animation
   useEffect(() => {
     if (stage !== 'invitation') return;
     const interval = setInterval(() => {
@@ -798,7 +760,6 @@ export default function App() {
     return () => clearInterval(interval);
   }, [stage]);
 
-  // Smooth Camera Tween Helper
   const flyCameraTo = useCallback((targetPos, targetLookAt, duration = 2400, onComplete = null) => {
     const sc = sceneObjectsRef.current;
     if (!sc.camera) return;
@@ -818,21 +779,26 @@ export default function App() {
     };
   }, []);
 
-  // Jump to any scene waypoint
   const navigateToWaypoint = useCallback(
     (waypointId) => {
       const wp = SCENE_WAYPOINTS.find((w) => w.id === waypointId);
       if (!wp) return;
 
-      // Close open overlays when flying
       setActiveMemoryIndex(null);
       setPortraitModalOpen(false);
       setActivePlaque(null);
       setLetterModalOpen(false);
       setCrownRevealCardOpen(false);
 
-      // If flying inside the palace, make sure the grand doors are open
-      const interiorScenes = ['gallery', 'memories', 'portrait', 'garden', 'letter', 'crown', 'reveal'];
+      const interiorScenes = [
+        'gallery',
+        'memories',
+        'portrait',
+        'garden',
+        'letter',
+        'crown',
+        'reveal'
+      ];
       if (interiorScenes.includes(waypointId) && !doorsOpened) {
         setDoorsOpened(true);
         sceneObjectsRef.current.doorsOpening = true;
@@ -847,7 +813,6 @@ export default function App() {
       if (audioRef.current) audioRef.current.playSparkle();
 
       flyCameraTo(wp.pos, wp.lookAt, 2400, () => {
-        // Sync player yaw & pitch after camera flight finishes
         const sc = sceneObjectsRef.current;
         if (!sc.camera) return;
         const euler = new THREE.Euler().setFromQuaternion(sc.camera.quaternion, 'YXZ');
@@ -858,7 +823,6 @@ export default function App() {
     [doorsOpened, flyCameraTo]
   );
 
-  // Start the Palace Experience from Invitation Screen
   const handleEnterPalace = () => {
     if (audioRef.current) {
       audioRef.current.startMusic();
@@ -867,7 +831,6 @@ export default function App() {
     setStage('cinematic_intro');
     setActiveWaypoint('exterior');
 
-    // Start wide at Z=84 and sweep gracefully to the Grand Entrance at Z=44.5
     const sc = sceneObjectsRef.current;
     if (sc.camera) {
       sc.camera.position.set(0, 6.2, 84);
@@ -888,7 +851,6 @@ export default function App() {
     );
   };
 
-  // Open the Grand Palace Doors (Scene 2 -> Scene 3)
   const handleOpenGrandDoors = useCallback(() => {
     if (doorsOpened) return;
     setDoorsOpened(true);
@@ -898,7 +860,6 @@ export default function App() {
     }
     setActiveWaypoint('gallery');
 
-    // Glide ceremonially through the opening doors into the Royal Gallery
     flyCameraTo(
       { x: 0, y: 3.4, z: 24 },
       { x: 0, y: 4.2, z: -5 },
@@ -913,7 +874,6 @@ export default function App() {
     );
   }, [doorsOpened, flyCameraTo]);
 
-  // Claim Crown Ceremony Action (Scene 8)
   const handleClaimCrown = useCallback(() => {
     if (crownClaimed) {
       setCrownRevealCardOpen(true);
@@ -936,7 +896,6 @@ export default function App() {
     );
   }, [crownClaimed, flyCameraTo]);
 
-  // Trigger Final Scene — The Royal Reveal (Scene 9)
   const handleLaunchFinalReveal = useCallback(() => {
     setCrownRevealCardOpen(false);
     setLetterModalOpen(false);
@@ -955,7 +914,6 @@ export default function App() {
     );
   }, [flyCameraTo]);
 
-  // Update 3D Memory Frame Texture when user uploads a photo
   const handleMemoryPhotoUpload = (memoryIndex, file) => {
     if (!file) return;
     const reader = new FileReader();
@@ -978,7 +936,6 @@ export default function App() {
     reader.readAsDataURL(file);
   };
 
-  // Update Shruti's 3D Masterpiece Portrait Texture when user uploads a photo
   const handleShrutiPortraitUpload = (file) => {
     if (!file) return;
     const reader = new FileReader();
@@ -1000,7 +957,6 @@ export default function App() {
     reader.readAsDataURL(file);
   };
 
-  // Focus on a specific Memory Frame in 3D space
   const focusMemoryFrame = useCallback(
     (index) => {
       const mem = memories[index];
@@ -1043,7 +999,6 @@ export default function App() {
     container.innerHTML = '';
     container.appendChild(renderer.domElement);
 
-    // 1. SCENE, CAMERA & WARM GOLDEN SUNSET FOG
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#2c0c18');
     scene.fog = new THREE.FogExp2('#38121f', 0.0068);
@@ -1058,7 +1013,6 @@ export default function App() {
     camera.lookAt(0, 7.5, 32);
     sceneObjectsRef.current.camera = camera;
 
-    // 2. SHARED ROYAL MATERIALS
     const marbleFloorTex = createMarbleTexture();
     const carpetTex = createCarpetTexture();
 
@@ -1116,7 +1070,6 @@ export default function App() {
       roughness: 0.88
     });
 
-    // 3. LIGHTING — GOLDEN SUNSET, AMBIENT & PALACE CHANDELIERS
     const hemiLight = new THREE.HemisphereLight('#ffe5b4', '#3b0a18', 0.75);
     scene.add(hemiLight);
 
@@ -1133,7 +1086,6 @@ export default function App() {
     sunLight.shadow.camera.bottom = -75;
     scene.add(sunLight);
 
-    // Sunset Sky Dome & Glowing Horizon Sun Disc
     const skyGeo = new THREE.SphereGeometry(240, 32, 24);
     const skyCanvas = document.createElement('canvas');
     skyCanvas.width = 64;
@@ -1163,12 +1115,9 @@ export default function App() {
     sunDisc.position.set(0, 26, -195);
     scene.add(sunDisc);
 
-    // Interactive click targets array for Raycaster
     const interactables = [];
 
-    // ========================================================================
-    // SCENE 1: GRAND PALACE EXTERIOR & COURTYARD (Z: +95 to +36)
-    // ========================================================================
+    // SCENE 1: EXTERIOR
     const courtyardGround = new THREE.Mesh(
       new THREE.PlaneGeometry(180, 90),
       new THREE.MeshStandardMaterial({ color: '#cbb9a8', roughness: 0.85 })
@@ -1178,14 +1127,12 @@ export default function App() {
     courtyardGround.receiveShadow = true;
     scene.add(courtyardGround);
 
-    // Central Stone Walkway & Red Carpet approach
     const approachPath = new THREE.Mesh(new THREE.PlaneGeometry(11, 56), matCreamStone);
     approachPath.rotation.x = -Math.PI / 2;
     approachPath.position.set(0, 0.02, 64);
     approachPath.receiveShadow = true;
     scene.add(approachPath);
 
-    // Courtyard Royal Fountain at Z = 62
     const fountainGroup = new THREE.Group();
     fountainGroup.position.set(0, 0, 62);
     const basin = new THREE.Mesh(new THREE.CylinderGeometry(5.5, 6.0, 0.9, 32), matCreamStone);
@@ -1218,16 +1165,13 @@ export default function App() {
     fountainGroup.add(spireTop);
     scene.add(fountainGroup);
 
-    // Symmetrical Courtyard Gardens, Cypress Trees & Glowing Lanterns
     [-16, 16].forEach((sideX) => {
       for (let z = 46; z <= 82; z += 12) {
-        // Manicured Boxwood Hedge & Rose bed
         const hedge = new THREE.Mesh(new THREE.BoxGeometry(6, 1.1, 8), matHedge);
         hedge.position.set(sideX, 0.55, z);
         hedge.castShadow = true;
         scene.add(hedge);
 
-        // Cypress Tree
         const trunk = new THREE.Mesh(
           new THREE.CylinderGeometry(0.25, 0.35, 1.4, 8),
           matDarkWalnut
@@ -1242,7 +1186,6 @@ export default function App() {
       }
     });
 
-    // Golden Courtyard Lanterns lining the main path
     [-6.5, 6.5].forEach((lx) => {
       [44, 54, 70, 80].forEach((lz) => {
         const post = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 3.8, 10), matGold);
@@ -1258,11 +1201,9 @@ export default function App() {
       });
     });
 
-    // GRAND SYMMETRICAL PALACE FACADE (at Z = 36)
     const facadeGroup = new THREE.Group();
     facadeGroup.position.set(0, 0, 36);
 
-    // Left and Right Palace Wings
     [-26, 26].forEach((wingX) => {
       const wing = new THREE.Mesh(new THREE.BoxGeometry(36, 16, 8), matCreamStone);
       wing.position.set(wingX, 8, 0);
@@ -1270,14 +1211,12 @@ export default function App() {
       wing.receiveShadow = true;
       facadeGroup.add(wing);
 
-      // Mansard Roof on Wing
       const roof = new THREE.Mesh(new THREE.ConeGeometry(26, 5.5, 4), matMansardRoof);
       roof.rotation.y = Math.PI / 4;
       roof.scale.set(1, 1, 0.32);
       roof.position.set(wingX, 18.7, 0);
       facadeGroup.add(roof);
 
-      // Warmly Illuminated Tall French Windows across 2 floors
       for (let wx = wingX - 13; wx <= wingX + 13; wx += 6.5) {
         [4.8, 11.2].forEach((wy) => {
           const winFrame = new THREE.Mesh(new THREE.BoxGeometry(2.6, 4.2, 0.3), matGold);
@@ -1291,19 +1230,16 @@ export default function App() {
       }
     });
 
-    // Central Frontispiece & Royal Dome above the Grand Entrance
     const centerHeader = new THREE.Mesh(new THREE.BoxGeometry(16, 7.5, 8.5), matCreamStone);
     centerHeader.position.set(0, 12.25, 0);
     facadeGroup.add(centerHeader);
 
-    // Classical Pediment Triangle
     const pediment = new THREE.Mesh(new THREE.ConeGeometry(10.5, 4.2, 4), matGold);
     pediment.rotation.y = Math.PI / 4;
     pediment.scale.set(1.15, 1, 0.45);
     pediment.position.set(0, 18.0, 1.5);
     facadeGroup.add(pediment);
 
-    // Sovereign Central Dome & Golden Spire
     const centralDome = new THREE.Mesh(
       new THREE.SphereGeometry(6.8, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2),
       matMansardRoof
@@ -1315,7 +1251,6 @@ export default function App() {
     domeSpire.position.set(0, 25.5, -2);
     facadeGroup.add(domeSpire);
 
-    // Corinthian Columns framing the Grand Entrance
     [-6.8, -4.6, 4.6, 6.8].forEach((colX) => {
       const col = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.65, 14, 16), matWarmIvory);
       col.position.set(colX, 7, 4.3);
@@ -1329,14 +1264,7 @@ export default function App() {
 
     scene.add(facadeGroup);
 
-    // ========================================================================
-    // SCENE 2: THE GRAND ENTRANCE — ANIMATED CARVED WALNUT DOORS (Z = 36)
-    // ========================================================================
-    const doorFrameArch = new THREE.Mesh(new THREE.BoxGeometry(8.6, 9.2, 1.4), matGold);
-    doorFrameArch.position.set(0, 4.6, 36);
-    // Cut out inner doorway by placing left/right/top jambs
-    scene.remove(doorFrameArch);
-
+    // SCENE 2: GRAND DOORS
     const jambLeft = new THREE.Mesh(new THREE.BoxGeometry(0.9, 8.8, 1.8), matGold);
     jambLeft.position.set(-3.85, 4.4, 36);
     scene.add(jambLeft);
@@ -1349,7 +1277,6 @@ export default function App() {
     lintelTop.position.set(0, 8.9, 36);
     scene.add(lintelTop);
 
-    // Wall panels between the door jambs and the palace wings
     [-6.15, 6.15].forEach((wx) => {
       const sideWall = new THREE.Mesh(new THREE.BoxGeometry(3.7, 8.8, 1.8), matCreamStone);
       sideWall.position.set(wx, 4.4, 36);
@@ -1358,7 +1285,6 @@ export default function App() {
       scene.add(sideWall);
     });
 
-    // Left and Right Pivoting Walnut Doors
     const leftDoorPivot = new THREE.Group();
     leftDoorPivot.position.set(-3.4, 0, 36);
     const rightDoorPivot = new THREE.Group();
@@ -1373,7 +1299,6 @@ export default function App() {
       panel.castShadow = true;
       leafGroup.add(panel);
 
-      // Ornate gold mouldings & royal crest on each door leaf
       [2.1, 6.2].forEach((py) => {
         const moulding = new THREE.Mesh(new THREE.BoxGeometry(2.5, 3.1, 0.42), matGold);
         moulding.position.set(offsetX, py, 0);
@@ -1384,13 +1309,11 @@ export default function App() {
         leafGroup.add(innerWood);
       });
 
-      // Royal Emblem Medallion
       const crest = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.48, 20), matGold);
       crest.rotation.x = Math.PI / 2;
       crest.position.set(offsetX, 4.5, 0);
       leafGroup.add(crest);
 
-      // Antique Gold Door Handle
       const handleX = isLeft ? 3.05 : -3.05;
       const handle = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.05, 12, 24), matChampagneGold);
       handle.position.set(handleX, 3.8, 0.28);
@@ -1409,42 +1332,34 @@ export default function App() {
     sceneObjectsRef.current.leftDoorPivot = leftDoorPivot;
     sceneObjectsRef.current.rightDoorPivot = rightDoorPivot;
 
-    // Warm Golden Light Spilling from Inside the Doorway
     const doorwaySpillLight = new THREE.PointLight('#ffcf75', 2.4, 24);
     doorwaySpillLight.position.set(0, 5.5, 32);
     scene.add(doorwaySpillLight);
 
-    // ========================================================================
-    // SCENE 3 & 4: THE ROYAL GALLERY & MEMORY GALLERY (Z: +36 to -18)
-    // ========================================================================
-    // Marble Floor spanning Gallery & Portrait Hall (Z: +36 to -38)
+    // SCENE 3 & 4: GALLERY & MEMORY FRAMES
     const interiorFloor = new THREE.Mesh(new THREE.PlaneGeometry(24, 76), matMarbleFloor);
     interiorFloor.rotation.x = -Math.PI / 2;
     interiorFloor.position.set(0, 0.01, -2);
     interiorFloor.receiveShadow = true;
     scene.add(interiorFloor);
 
-    // Royal Red/Burgundy Carpet Runner down the center
     const royalRunner = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 74), matCarpet);
     royalRunner.rotation.x = -Math.PI / 2;
     royalRunner.position.set(0, 0.03, -1);
     royalRunner.receiveShadow = true;
     scene.add(royalRunner);
 
-    // Coffered Ceiling over Gallery
     const galleryCeiling = new THREE.Mesh(new THREE.PlaneGeometry(24, 56), matWarmIvory);
     galleryCeiling.rotation.x = Math.PI / 2;
     galleryCeiling.position.set(0, 12.5, 9);
     scene.add(galleryCeiling);
 
-    // Gallery Side Walls, Dark Walnut Wainscoting, Fluted Columns & Volumetric Sunbeams
     [-10.2, 10.2].forEach((wallX) => {
       const mainWall = new THREE.Mesh(new THREE.BoxGeometry(0.8, 12.5, 54), matCreamStone);
       mainWall.position.set(wallX, 6.25, 9);
       mainWall.receiveShadow = true;
       scene.add(mainWall);
 
-      // Dark Walnut Wainscoting Lower Panel
       const wainscot = new THREE.Mesh(new THREE.BoxGeometry(0.95, 2.6, 54), matDarkWalnut);
       wainscot.position.set(wallX, 1.3, 9);
       scene.add(wainscot);
@@ -1454,7 +1369,6 @@ export default function App() {
       scene.add(goldChairRail);
     });
 
-    // Fluted Colonnade Pillars & Royal Velvet Benches along the Gallery
     for (let z = 30; z >= -14; z -= 8) {
       [-8.8, 8.8].forEach((colX) => {
         const pillar = new THREE.Mesh(
@@ -1475,7 +1389,6 @@ export default function App() {
       });
     }
 
-    // Royal Benches
     [22, 6, -8].forEach((bz) => {
       [-5.6, 5.6].forEach((bx) => {
         const benchGroup = new THREE.Group();
@@ -1494,7 +1407,6 @@ export default function App() {
       });
     });
 
-    // 4 Ornate Golden Crystal Chandeliers along the Royal Gallery
     const chandelierPositionsZ = [26, 14, 2, -10];
     chandelierPositionsZ.forEach((cz) => {
       const chand = new THREE.Group();
@@ -1513,7 +1425,6 @@ export default function App() {
       ring2.position.y = 0.55;
       chand.add(ring2);
 
-      // Glowing crystal candles around chandelier ring
       for (let i = 0; i < 8; i++) {
         const angle = (i / 8) * Math.PI * 2;
         const bulb = new THREE.Mesh(
@@ -1531,7 +1442,6 @@ export default function App() {
       scene.add(chand);
     });
 
-    // Volumetric Golden Light Shafts pouring through upper gallery windows
     const rayMat = new THREE.MeshBasicMaterial({
       color: '#ffe49e',
       transparent: true,
@@ -1547,21 +1457,16 @@ export default function App() {
       scene.add(rayCone);
     });
 
-    // ========================================================================
-    // SCENE 4: 5 INTERACTIVE MEMORY GALLERY FRAMES (Z: +18 to -11)
-    // ========================================================================
     const memoryMeshes = [];
     INITIAL_MEMORIES.forEach((mem, index) => {
       const frameGroup = new THREE.Group();
       frameGroup.position.set(mem.position.x, mem.position.y, mem.position.z);
       frameGroup.rotation.y = mem.position.rotY;
 
-      // Outer sculpted antique gold frame
       const outerGold = new THREE.Mesh(new THREE.BoxGeometry(3.2, 4.0, 0.22), matGold);
       outerGold.castShadow = true;
       frameGroup.add(outerGold);
 
-      // Picture plane (placeholder first, real photo swapped in once it loads)
       const frameMat = new THREE.MeshBasicMaterial({
         map: createMemoryFrameCanvasTexture(mem, null)
       });
@@ -1581,7 +1486,6 @@ export default function App() {
         memImg.src = mem.imageUrl;
       }
 
-      // Dedicated Museum Picture Light above frame
       const lampBar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.4, 8), matGold);
       lampBar.rotation.z = Math.PI / 2;
       lampBar.position.set(0, 2.25, 0.35);
@@ -1591,20 +1495,16 @@ export default function App() {
     });
     sceneObjectsRef.current.memoryFrameMeshes = memoryMeshes;
 
-    // ========================================================================
-    // SCENE 5: THE ROYAL PORTRAIT HALL (Z: -18 to -38)
-    // ========================================================================
+    // SCENE 5: PORTRAIT HALL
     const rotundaGroup = new THREE.Group();
     rotundaGroup.position.set(0, 0, -28);
 
-    // Octagonal / Curved Rotunda Side Walls
     [-12.5, 12.5].forEach((rx) => {
       const rWall = new THREE.Mesh(new THREE.BoxGeometry(1.0, 12.5, 22), matBurgundyVelvet);
       rWall.position.set(rx, 6.25, 0);
       rotundaGroup.add(rWall);
     });
 
-    // Raised Circular Marble Dais for Shruti's Central Masterpiece Portrait
     const portraitDais = new THREE.Mesh(new THREE.CylinderGeometry(4.8, 5.2, 0.45, 32), matGold);
     portraitDais.position.set(0, 0.22, -3.2);
     rotundaGroup.add(portraitDais);
@@ -1616,7 +1516,6 @@ export default function App() {
     innerDais.position.set(0, 0.25, -3.2);
     rotundaGroup.add(innerDais);
 
-    // Central Masterpiece Frame for Princess Shruti at Z = -31.2
     const portraitHolder = new THREE.Group();
     portraitHolder.position.set(0, 4.9, -3.2);
 
@@ -1624,7 +1523,6 @@ export default function App() {
     masterOuterFrame.castShadow = true;
     portraitHolder.add(masterOuterFrame);
 
-    // Crown topper above Shruti's frame
     const crownTopper = new THREE.Mesh(new THREE.ConeGeometry(0.75, 0.9, 6), matChampagneGold);
     crownTopper.position.set(0, 3.25, 0.1);
     portraitHolder.add(crownTopper);
@@ -1645,14 +1543,12 @@ export default function App() {
     };
     defaultPortraitImg.src = './photo6.jpg';
 
-    // Dedicated warm spotlight on Shruti's Portrait
     const portraitSpot = new THREE.PointLight('#ffdf91', 2.2, 16);
     portraitSpot.position.set(0, 3.8, 3.5);
     portraitHolder.add(portraitSpot);
 
     rotundaGroup.add(portraitHolder);
 
-    // Velvet Stanchion Ropes flanking the Portrait Dais
     [-3.4, 3.4].forEach((sx) => {
       const post = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.14, 1.2, 12), matGold);
       post.position.set(sx, 0.6, 0.5);
@@ -1661,9 +1557,7 @@ export default function App() {
 
     scene.add(rotundaGroup);
 
-    // ========================================================================
-    // SCENE 6: THE SUNSET ROSE GARDEN & INTERACTIVE PLAQUES (Z: -38 to -90)
-    // ========================================================================
+    // SCENE 6: ROSE GARDEN
     const gardenGround = new THREE.Mesh(
       new THREE.PlaneGeometry(160, 110),
       new THREE.MeshStandardMaterial({ color: '#1f3622', roughness: 0.92 })
@@ -1673,14 +1567,12 @@ export default function App() {
     gardenGround.receiveShadow = true;
     scene.add(gardenGround);
 
-    // Stone Garden Walkway extending from Z = -38 to Z = -108
     const gardenPath = new THREE.Mesh(new THREE.PlaneGeometry(6.8, 72), matCreamStone);
     gardenPath.rotation.x = -Math.PI / 2;
     gardenPath.position.set(0, 0.03, -74);
     gardenPath.receiveShadow = true;
     scene.add(gardenPath);
 
-    // Rose-Covered Golden Arches over the Garden Path
     const rosePinkMat = new THREE.MeshStandardMaterial({ color: '#e8b4bc', roughness: 0.5 });
     const deepRoseMat = new THREE.MeshStandardMaterial({ color: '#c95b76', roughness: 0.5 });
     const ivoryRoseMat = new THREE.MeshStandardMaterial({ color: '#fdfbf7', roughness: 0.5 });
@@ -1703,7 +1595,6 @@ export default function App() {
       archTop.position.set(0, 4.8, 0);
       archGroup.add(archTop);
 
-      // Climbing roses along the arch
       for (let i = 0; i <= 10; i++) {
         const angle = (i / 10) * Math.PI;
         const rx = Math.cos(angle) * 3.6;
@@ -1719,7 +1610,6 @@ export default function App() {
       scene.add(archGroup);
     });
 
-    // Lush 3D Rose Bushes & Symmetrical Hedges lining the Garden
     const swayingFoliage = [];
     for (let z = -42; z >= -94; z -= 5.5) {
       [-6.2, 6.2].forEach((bx, sideIdx) => {
@@ -1732,7 +1622,6 @@ export default function App() {
         leafMound.castShadow = true;
         bushGroup.add(leafMound);
 
-        // Cluster of 3D Roses on each bush
         for (let r = 0; r < 9; r++) {
           const theta = (r / 9) * Math.PI * 2;
           const rose = new THREE.Mesh(
@@ -1741,7 +1630,7 @@ export default function App() {
           );
           rose.position.set(
             Math.cos(theta) * 1.1,
-            1.1 + ( r % 3 ) * 0.25,
+            1.1 + (r % 3) * 0.25,
             Math.sin(theta) * 0.95
           );
           bushGroup.add(rose);
@@ -1752,7 +1641,6 @@ export default function App() {
       });
     }
 
-    // 3 Interactive Royal Brass Plaques on Stone Pedestals (Scene 6)
     GARDEN_PLAQUES.forEach((plaque) => {
       const pGroup = new THREE.Group();
       pGroup.position.set(plaque.position.x, 0, plaque.position.z);
@@ -1776,9 +1664,7 @@ export default function App() {
       scene.add(pGroup);
     });
 
-    // ========================================================================
-    // SCENE 7: THE ROYAL WRITING DESK & WAX-SEALED LETTER (Z = -88.5)
-    // ========================================================================
+    // SCENE 7: ROYAL LETTER DESK
     const deskGroup = new THREE.Group();
     deskGroup.position.set(0, 0, -88.5);
 
@@ -1791,7 +1677,6 @@ export default function App() {
     deskGoldTrim.position.y = 1.52;
     deskGroup.add(deskGoldTrim);
 
-    // 4 Cabriole Desk Legs
     [
       [-1.35, -0.7],
       [1.35, -0.7],
@@ -1803,11 +1688,7 @@ export default function App() {
       deskGroup.add(leg);
     });
 
-    // 3D Royal Envelope with Crimson & Gold Wax Seal
-    const envelopeMesh = new THREE.Mesh(
-      new THREE.BoxGeometry(0.95, 0.08, 0.65),
-      matWarmIvory
-    );
+    const envelopeMesh = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.08, 0.65), matWarmIvory);
     envelopeMesh.position.set(0, 1.71, 0.1);
     envelopeMesh.rotation.y = 0.08;
     envelopeMesh.userData = { interactType: 'letter' };
@@ -1823,7 +1704,6 @@ export default function App() {
     deskGroup.add(waxSeal);
     interactables.push(waxSeal);
 
-    // Golden Candelabra on the Writing Desk
     const candelabra = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.22, 0.65, 12), matGold);
     candelabra.position.set(-1.1, 1.95, -0.35);
     deskGroup.add(candelabra);
@@ -1834,13 +1714,10 @@ export default function App() {
 
     scene.add(deskGroup);
 
-    // ========================================================================
-    // SCENE 8: THE CROWN CEREMONY PAVILION & 3D GOLDEN CROWN (Z = -102.5)
-    // ========================================================================
+    // SCENE 8: CROWN PAVILION
     const pavilionGroup = new THREE.Group();
     pavilionGroup.position.set(0, 0, -102.5);
 
-    // 3-step Circular Marble Steps
     [
       { r: 7.2, h: 0.3, y: 0.15 },
       { r: 6.2, h: 0.3, y: 0.45 },
@@ -1855,7 +1732,6 @@ export default function App() {
       pavilionGroup.add(step);
     });
 
-    // Ring of 6 Classical Pavilion Columns supporting an Open Golden Ring Dome
     for (let i = 0; i < 6; i++) {
       const angle = (i / 6) * Math.PI * 2 + Math.PI / 6;
       const px = Math.cos(angle) * 4.5;
@@ -1874,7 +1750,6 @@ export default function App() {
     pavilionRing.position.y = 7.1;
     pavilionGroup.add(pavilionRing);
 
-    // Royal Crown Pedestal & Velvet Cushion
     const crownPedestal = new THREE.Mesh(
       new THREE.CylinderGeometry(0.72, 0.92, 1.55, 24),
       matWarmIvory
@@ -1894,7 +1769,6 @@ export default function App() {
     pavilionGroup.add(cushionMesh);
     interactables.push(cushionMesh);
 
-    // DETAILED 3D GOLDEN PRINCESS CROWN
     const crownGroup = new THREE.Group();
     crownGroup.position.set(0, 2.85, 0);
 
@@ -1923,7 +1797,6 @@ export default function App() {
       metalness: 0.2
     });
 
-    // 8 Ornate Crown Spires, Pearls & Gemstones
     for (let i = 0; i < 8; i++) {
       const a = (i / 8) * Math.PI * 2;
       const r = 0.49;
@@ -1944,7 +1817,6 @@ export default function App() {
       crownGroup.add(gem);
     }
 
-    //Invisible click sphere around the crown for easy interaction
     const crownHitBox = new THREE.Mesh(
       new THREE.SphereGeometry(0.95, 12, 12),
       new THREE.MeshBasicMaterial({ visible: false })
@@ -1963,10 +1835,7 @@ export default function App() {
     sceneObjectsRef.current.crownGroup = crownGroup;
     sceneObjectsRef.current.crownLight = crownLight;
 
-    // ========================================================================
-    // ATMOSPHERIC PARTICLES: GOLDEN DUST MOTES & FLOATING ROSE PETALS
-    // ========================================================================
-    // 1. Golden Dust Particles throughout the Palace & Courtyard
+    // PARTICLES
     const dustCount = 420;
     const dustGeo = new THREE.BufferGeometry();
     const dustPos = new Float32Array(dustCount * 3);
@@ -1988,7 +1857,6 @@ export default function App() {
     );
     scene.add(dustPoints);
 
-    // 2. 3D Floating Rose Petals in the Sunset Garden & Finale
     const petalCount = 110;
     const petalMeshes = [];
     const petalGeo = new THREE.CircleGeometry(0.14, 6);
@@ -2016,9 +1884,7 @@ export default function App() {
       petalMeshes.push(pMesh);
     }
 
-    // ========================================================================
-    // INPUT LISTENERS: KEYBOARD (WASD), MOUSE LOOK & RAYCAST CLICK
-    // ========================================================================
+    // INPUT LISTENERS
     const keysPressed = {};
     const handleKeyDown = (e) => {
       keysPressed[e.code] = true;
@@ -2057,6 +1923,7 @@ export default function App() {
       sc.playerYaw -= dx * yawSpeed;
       sc.playerPitch = Math.max(-0.55, Math.min(0.55, sc.playerPitch - dy * pitchSpeed));
     };
+
     const raycaster = new THREE.Raycaster();
     const mouseVec = new THREE.Vector2();
 
@@ -2064,16 +1931,15 @@ export default function App() {
       if (!sceneObjectsRef.current.isDraggingLook) return;
       sceneObjectsRef.current.isDraggingLook = false;
 
-      // If pointer barely moved, treat as an interactive 3D click
       const dist = Math.hypot(e.clientX - pointerDownPos.x, e.clientY - pointerDownPos.y);
-      if (dist < 6 && e.target === renderer.domElement) {
+      if (dist < 10 && e.target === renderer.domElement) {
         const rect = renderer.domElement.getBoundingClientRect();
         mouseVec.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
         mouseVec.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
 
         raycaster.setFromCamera(mouseVec, camera);
         const hits = raycaster.intersectObjects(interactables, false);
-        if (hits.length > 0 && hits[0].distance < 24) {
+        if (hits.length > 0 && hits[0].distance < 26) {
           const data = hits[0].object.userData;
           if (data.interactType === 'grand_doors') {
             handlersRef.current.handleOpenGrandDoors();
@@ -2112,7 +1978,6 @@ export default function App() {
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
 
-    // Resize Handler
     const handleResize = () => {
       if (!container) return;
       camera.aspect = container.clientWidth / container.clientHeight;
@@ -2121,9 +1986,6 @@ export default function App() {
     };
     window.addEventListener('resize', handleResize);
 
-    // ========================================================================
-    // MAIN ANIMATION & FIRST-PERSON EXPLORATION LOOP
-    // ========================================================================
     let animId;
     let lastProximityCheck = 0;
 
@@ -2132,7 +1994,6 @@ export default function App() {
       const t = now * 0.001;
       const sc = sceneObjectsRef.current;
 
-      // 1. Animate Grand Palace Doors swinging inward smoothly
       if (sc.doorsOpening && sc.doorsOpenAmount < 1) {
         sc.doorsOpenAmount = Math.min(1, sc.doorsOpenAmount + 0.009);
         const eased = 1 - Math.pow(1 - sc.doorsOpenAmount, 3);
@@ -2141,7 +2002,6 @@ export default function App() {
         if (sc.rightDoorPivot) sc.rightDoorPivot.rotation.y = -targetAngle;
       }
 
-      // 2. Animate 3D Golden Princess Crown Rotation & Ceremony Levitation
       if (sc.crownGroup) {
         sc.crownGroup.rotation.y = t * (sc.crownClaimedAnim ? 1.15 : 0.45);
         if (sc.crownClaimedAnim && sc.crownHeightOffset < 1.15) {
@@ -2153,12 +2013,10 @@ export default function App() {
         }
       }
 
-      // 3. Gentle Wind Sway on Rose Garden Bushes
       swayingFoliage.forEach((bush, idx) => {
         bush.rotation.z = Math.sin(t * 1.4 + idx) * 0.022;
       });
 
-      // 4. Animate Floating Rose Petals
       petalMeshes.forEach((p) => {
         p.position.y -= p.userData.speedY;
         p.position.x += Math.sin(t + p.userData.phase) * 0.015;
@@ -2169,7 +2027,6 @@ export default function App() {
         }
       });
 
-      // 5. Animate Golden Dust Particles
       const posAttr = dustGeo.getAttribute('position');
       for (let i = 0; i < dustCount; i++) {
         let py = posAttr.getY(i) + 0.004;
@@ -2178,11 +2035,9 @@ export default function App() {
       }
       posAttr.needsUpdate = true;
 
-      // 6. Camera Tweening OR First-Person Player Movement
       if (sc.cameraTween) {
         const tw = sc.cameraTween;
         const progress = Math.min(1, (now - tw.startTime) / tw.duration);
-        // Smooth quintic ease-in-out
         const ease =
           progress < 0.5
             ? 4 * progress * progress * progress
@@ -2201,7 +2056,6 @@ export default function App() {
           if (cb) cb();
         }
       } else {
-        // First-Person WASD + Virtual Joystick Exploration
         let moveZ = sc.moveState.forward;
         let moveX = sc.moveState.right;
 
@@ -2229,17 +2083,14 @@ export default function App() {
             .addScaledVector(forwardVec, moveZ * speed)
             .addScaledVector(rightVec, moveX * speed);
 
-          // Prevent walking through closed Grand Doors at Z = 36
           if (!sc.doorsOpening && nextPos.z < 38.2 && camera.position.z >= 38.2) {
             nextPos.z = 38.2;
           }
 
-          // Corridor & Garden bounds
           const maxHalfWidth = nextPos.z > 36 || nextPos.z < -38 ? 14 : 7.4;
           nextPos.x = Math.max(-maxHalfWidth, Math.min(maxHalfWidth, nextPos.x));
           nextPos.z = Math.max(-112, Math.min(86, nextPos.z));
 
-          // Gentle head-bob while walking
           nextPos.y = 3.3 + Math.sin(t * 8.5) * 0.045;
           camera.position.copy(nextPos);
 
@@ -2247,7 +2098,6 @@ export default function App() {
         }
       }
 
-      // 7. Proximity Detection for Floating Interactive Prompts (throttled to every 180ms)
       if (now - lastProximityCheck > 180) {
         lastProximityCheck = now;
         const cz = camera.position.z;
@@ -2255,7 +2105,6 @@ export default function App() {
 
         let detected = null;
 
-        // Check Grand Doors proximity
         if (!sc.doorsOpening && cz > 36 && cz < 50) {
           detected = {
             type: 'doors',
@@ -2265,7 +2114,6 @@ export default function App() {
           };
         }
 
-        // Check 5 Memory Frames proximity
         if (!detected) {
           INITIAL_MEMORIES.forEach((m, idx) => {
             const dist = Math.hypot(cx - m.position.x, cz - m.position.z);
@@ -2274,14 +2122,13 @@ export default function App() {
                 type: 'memory',
                 memoryIndex: idx,
                 title: `${m.code} — ${m.title}`,
-                subtitle: 'Approach or click to inspect this royal memory frame',
+                subtitle: 'Tap below to inspect this royal memory frame',
                 buttonText: 'OPEN MEMORY CARD'
               };
             }
           });
         }
 
-        // Check Central Portrait Hall proximity
         if (!detected && Math.hypot(cx - 0, cz - -26) < 8.5) {
           detected = {
             type: 'portrait',
@@ -2291,7 +2138,6 @@ export default function App() {
           };
         }
 
-        // Check 3 Rose Garden Plaques proximity
         if (!detected) {
           GARDEN_PLAQUES.forEach((pl) => {
             const dist = Math.hypot(cx - pl.position.x, cz - pl.position.z);
@@ -2307,7 +2153,6 @@ export default function App() {
           });
         }
 
-        // Check Royal Letter Desk proximity
         if (!detected && Math.hypot(cx - 0, cz - -85.5) < 6.8) {
           detected = {
             type: 'letter',
@@ -2317,7 +2162,6 @@ export default function App() {
           };
         }
 
-        // Check Crown Pedestal proximity
         if (!detected && Math.hypot(cx - 0, cz - -99) < 7.8) {
           detected = {
             type: 'crown',
@@ -2347,15 +2191,12 @@ export default function App() {
     };
   }, [flyCameraTo]);
 
-  // Mobile Virtual Touch Pad Handler
   const setMobileMove = (forward, right) => {
     sceneObjectsRef.current.moveState = { forward, right };
   };
 
-  // Current active memory object
   const currentMemory = activeMemoryIndex !== null ? memories[activeMemoryIndex] : null;
 
-  // Graceful fallback if WebGL is disabled
   if (webglError) {
     return (
       <div className="min-h-screen bg-[#24050e] text-[#fdfbf7] flex flex-col items-center justify-center p-8 text-center font-serif">
@@ -2370,10 +2211,8 @@ export default function App() {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#1a040a] select-none font-serif text-[#fdfbf7]">
-      {/* ====================================================================
-          3D THREE.JS PALACE CANVAS
-      ==================================================================== */}
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-[#1a040a] select-none font-serif text-[#fdfbf7]">
+      {/* 3D THREE.JS PALACE CANVAS */}
       <div
         ref={mountRef}
         style={{ touchAction: 'none' }}
@@ -2398,11 +2237,10 @@ export default function App() {
       />
 
       {/* ====================================================================
-          OPENING SEQUENCE — THE ROYAL INVITATION (MILESTONE 1)
+          OPENING SEQUENCE — THE ROYAL INVITATION
       ==================================================================== */}
       {stage === 'invitation' && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-[#1a040b] via-[#2e0713] to-[#170308] px-6 text-center">
-          {/* Decorative Floating Golden Dust in Invitation Overlay */}
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-[#1a040b] via-[#2e0713] to-[#170308] p-4 sm:p-6 text-center overflow-y-auto">
           <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-50">
             {[...Array(20)].map((_, i) => (
               <div
@@ -2419,27 +2257,24 @@ export default function App() {
             ))}
           </div>
 
-          {/* Ornate Antique Gold Border Frame */}
-          <div className="relative max-w-xl w-full border border-[#d4af37]/50 bg-[#260610]/85 backdrop-blur-md p-8 sm:p-12 rounded-sm shadow-[0_0_80px_rgba(212,175,55,0.18)]">
+          <div className="relative max-w-xl w-full border border-[#d4af37]/50 bg-[#260610]/85 backdrop-blur-md p-6 sm:p-12 rounded-sm shadow-[0_0_80px_rgba(212,175,55,0.18)] my-auto">
             <div className="absolute inset-2 border border-[#d4af37]/25 pointer-events-none" />
 
-            {/* Royal Emblem SVG */}
-            <div className="mx-auto mb-6 w-20 h-20 rounded-full border-2 border-[#d4af37] bg-[#3b0a18] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.35)]">
-              <Crown className="w-10 h-10 text-[#f3e5ab]" />
+            <div className="mx-auto mb-5 w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#d4af37] bg-[#3b0a18] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.35)]">
+              <Crown className="w-8 h-8 sm:w-10 sm:h-10 text-[#f3e5ab]" />
             </div>
 
-            <p className="text-xs tracking-[0.38em] uppercase text-[#e8b4bc] mb-2">
+            <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#e8b4bc] mb-2">
               A Royal Princess Day Dedication
             </p>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-[0.14em] text-[#f3e5ab] mb-2">
+            <h1 className="text-2xl sm:text-5xl font-bold tracking-[0.14em] text-[#f3e5ab] mb-2">
               THE DISNEY REGENCY
             </h1>
-            <p className="text-lg sm:text-xl italic text-[#d8a7b1] mb-8">
+            <p className="text-base sm:text-xl italic text-[#d8a7b1] mb-6 sm:mb-8">
               A Royal Experience for Princess Shruti
             </p>
 
-            {/* Loading Progress & Filigree Bar */}
-            <div className="max-w-xs mx-auto mb-8">
+            <div className="max-w-xs mx-auto mb-6 sm:mb-8">
               <div className="flex items-center justify-between text-xs tracking-[0.2em] text-[#f3e5ab]/80 uppercase mb-2">
                 <span>Preparing your palace...</span>
                 <span>{loadingProgress}%</span>
@@ -2454,7 +2289,7 @@ export default function App() {
 
             <button
               onClick={handleEnterPalace}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1f040b] font-bold tracking-[0.22em] text-xs sm:text-sm uppercase rounded-sm shadow-[0_0_35px_rgba(212,175,55,0.45)] hover:shadow-[0_0_50px_rgba(243,229,171,0.75)] hover:scale-[1.02] active:scale-[0.99] transition-all cursor-pointer"
+              className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1f040b] font-bold tracking-[0.18em] text-xs sm:text-sm uppercase rounded-sm shadow-[0_0_35px_rgba(212,175,55,0.45)] hover:scale-[1.02] active:scale-[0.99] transition-all cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-[#24050e]" />
               <span>[ ENTER THE PALACE ]</span>
@@ -2462,59 +2297,55 @@ export default function App() {
             </button>
 
             <p className="mt-5 text-[11px] tracking-widest text-[#e8b4bc]/70 uppercase">
-              I hope your wait will worth it.
+              I hope your wait will be worth it.
             </p>
           </div>
         </div>
       )}
 
-      {/* ====================================================================
-          CINEMATIC INTRO SUBTITLE OVERLAY (SCENE 1)
-      ==================================================================== */}
+      {/* CINEMATIC INTRO SUBTITLE OVERLAY */}
       {stage === 'cinematic_intro' && (
-        <div className="pointer-events-none fixed inset-x-0 top-24 z-30 flex flex-col items-center text-center px-4">
+        <div className="pointer-events-none fixed inset-x-0 top-20 z-30 flex flex-col items-center text-center px-4">
           <p className="text-xs tracking-[0.35em] uppercase text-[#f3e5ab] mb-1 drop-shadow">
             THE DISNEY REGENCY
           </p>
-          <h2 className="text-2xl sm:text-3xl italic text-[#fdfbf7] drop-shadow-lg">
+          <h2 className="text-xl sm:text-3xl italic text-[#fdfbf7] drop-shadow-lg">
             Preparing your palace...
           </h2>
         </div>
       )}
 
       {/* ====================================================================
-          TOP NAVIGATION & ROYAL AUDIO / PHOTO CUSTOMIZER BAR
+          TOP NAVIGATION & ROYAL AUDIO / PHOTO CUSTOMIZER BAR (MOBILE READY)
       ==================================================================== */}
       {stage !== 'invitation' && (
-        <header className="fixed top-0 inset-x-0 z-30 flex items-center justify-between px-4 sm:px-8 py-3.5 bg-gradient-to-b from-[#1a040a]/90 via-[#1a040a]/55 to-transparent">
-          {/* Left Emblem & Current Wing */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full border border-[#d4af37] bg-[#3b0a18]/90 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+        <header className="fixed top-0 inset-x-0 z-30 flex items-center justify-between px-3 sm:px-8 py-2.5 sm:py-3.5 bg-gradient-to-b from-[#1a040a]/95 via-[#1a040a]/65 to-transparent">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-full border border-[#d4af37] bg-[#3b0a18]/90 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.3)]">
               <Crown className="w-4 h-4 text-[#f3e5ab]" />
             </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#f3e5ab] uppercase">
+            <div className="truncate">
+              <div className="text-[11px] sm:text-sm font-bold tracking-[0.15em] sm:tracking-[0.2em] text-[#f3e5ab] uppercase truncate">
                 The Disney Regency
               </div>
-              <div className="text-[11px] text-[#e8b4bc] italic hidden sm:block">
+              <div className="text-[11px] text-[#e8b4bc] italic hidden sm:block truncate">
                 {SCENE_WAYPOINTS.find((w) => w.id === activeWaypoint)?.description}
               </div>
             </div>
           </div>
 
-          {/* Right Controls: Customizer, Audio, Volume, Help */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right Controls: All accessible on both Phone and Desktop */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <button
               onClick={() => setCustomizerOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#d4af37]/60 bg-[#3b0a18]/85 hover:bg-[#4a0e1e] text-[#f3e5ab] text-xs tracking-wider uppercase transition cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[#d4af37]/60 bg-[#3b0a18]/90 hover:bg-[#4a0e1e] text-[#f3e5ab] text-[10px] sm:text-xs tracking-wider uppercase transition cursor-pointer"
               title="Upload Shruti's Portrait & Memory Photos"
             >
               <Camera className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span className="hidden md:inline">Royal Photos</span>
+              <span>Photos</span>
             </button>
 
-            {/* Volume Slider (Desktop) */}
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#d4af37]/35 bg-[#24050e]/80">
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#d4af37]/35 bg-[#24050e]/80">
               <Music className="w-3.5 h-3.5 text-[#d4af37]" />
               <input
                 type="range"
@@ -2531,14 +2362,13 @@ export default function App() {
               />
             </div>
 
-            {/* SFX Toggle */}
             <button
               onClick={() => {
                 const next = !sfxEnabled;
                 setSfxEnabled(next);
                 if (audioRef.current) audioRef.current.setSfxEnabled(next);
               }}
-              className={`px-2.5 py-1.5 rounded-sm border text-xs tracking-wider uppercase transition cursor-pointer ${
+              className={`px-2 py-1.5 rounded-sm border text-[10px] sm:text-xs tracking-wider uppercase transition cursor-pointer ${
                 sfxEnabled
                   ? 'border-[#d4af37]/60 bg-[#3b0a18]/80 text-[#f3e5ab]'
                   : 'border-white/20 bg-black/50 text-white/40'
@@ -2548,24 +2378,22 @@ export default function App() {
               SFX
             </button>
 
-            {/* Mute Button */}
             <button
               onClick={() => {
                 const next = !isMuted;
                 setIsMuted(next);
                 if (audioRef.current) audioRef.current.setMuted(next);
               }}
-              className="p-2 rounded-sm border border-[#d4af37]/50 bg-[#3b0a18]/80 hover:bg-[#4a0e1e] text-[#f3e5ab] transition cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-sm border border-[#d4af37]/50 bg-[#3b0a18]/80 hover:bg-[#4a0e1e] text-[#f3e5ab] transition cursor-pointer"
               title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
             >
               {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
             </button>
 
-            {/* Controls / Pause Button */}
             <button
               onClick={() => setControlsModalOpen(true)}
-              className="p-2 rounded-sm border border-[#d4af37]/50 bg-[#3b0a18]/80 hover:bg-[#4a0e1e] text-[#f3e5ab] transition cursor-pointer"
-              title="Palace Controls & Guide (ESC)"
+              className="p-1.5 sm:p-2 rounded-sm border border-[#d4af37]/50 bg-[#3b0a18]/80 hover:bg-[#4a0e1e] text-[#f3e5ab] transition cursor-pointer"
+              title="Settings, Volume & Guide"
             >
               <HelpCircle className="w-4 h-4" />
             </button>
@@ -2574,7 +2402,7 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          CONTEXTUAL FLOATING INTERACTION PROMPT (DOORS, FRAMES, PLAQUES, CROWN)
+          CONTEXTUAL FLOATING INTERACTION PROMPT (POSITIONED ABOVE MOBILE D-PAD)
       ==================================================================== */}
       {stage === 'exploring' &&
         nearbyPrompt &&
@@ -2583,12 +2411,12 @@ export default function App() {
         !activePlaque &&
         !letterModalOpen &&
         !crownRevealCardOpen && (
-          <div className="fixed inset-x-0 bottom-24 z-30 flex justify-center px-4 pointer-events-none">
-            <div className="pointer-events-auto max-w-md w-full bg-[#24050e]/90 border border-[#d4af37] px-6 py-5 rounded-sm text-center shadow-[0_0_45px_rgba(0,0,0,0.85)] backdrop-blur-md">
-              <p className="text-lg sm:text-xl font-bold text-[#f3e5ab] mb-1">
+          <div className="fixed inset-x-0 bottom-36 sm:bottom-20 z-30 flex justify-center px-3 pointer-events-none">
+            <div className="pointer-events-auto max-w-sm sm:max-w-md w-full bg-[#24050e]/95 border border-[#d4af37] px-4 py-3.5 sm:px-6 sm:py-5 rounded-sm text-center shadow-[0_0_45px_rgba(0,0,0,0.9)] backdrop-blur-md">
+              <p className="text-sm sm:text-xl font-bold text-[#f3e5ab] mb-0.5 line-clamp-1">
                 {nearbyPrompt.title}
               </p>
-              <p className="text-xs sm:text-sm italic text-[#e8b4bc] mb-4">
+              <p className="text-[11px] sm:text-sm italic text-[#e8b4bc] mb-3 line-clamp-2">
                 {nearbyPrompt.subtitle}
               </p>
 
@@ -2611,7 +2439,7 @@ export default function App() {
                     handleClaimCrown();
                   }
                 }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1f040b] font-bold text-xs tracking-[0.2em] uppercase rounded-sm shadow-[0_0_25px_rgba(212,175,55,0.45)] hover:scale-105 transition cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1f040b] font-bold text-[11px] sm:text-xs tracking-[0.18em] uppercase rounded-sm shadow-[0_0_25px_rgba(212,175,55,0.45)] active:scale-95 transition cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>[ {nearbyPrompt.buttonText} ]</span>
@@ -2621,103 +2449,122 @@ export default function App() {
         )}
 
       {/* ====================================================================
-          MOBILE / TOUCH VIRTUAL JOYSTICK D-PAD (BOTTOM LEFT)
+          MOBILE / TOUCH VIRTUAL JOYSTICK D-PAD (HIDDEN WHEN ANY CARD IS OPEN)
       ==================================================================== */}
-      {stage !== 'invitation' && stage !== 'final_reveal' && (
-        <div
-          style={{ touchAction: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
-          onContextMenu={(e) => e.preventDefault()}
-          className="fixed bottom-14 left-3 z-40 flex flex-col items-center gap-1.5 pointer-events-auto"
-        >
-          <button
-            type="button"
-            onPointerDown={(e) => { e.preventDefault(); setMobileMove(1, 0); }}
-            onPointerUp={() => setMobileMove(0, 0)}
-            onPointerCancel={() => setMobileMove(0, 0)}
-            onPointerLeave={() => setMobileMove(0, 0)}
-            className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
-            title="Walk Forward (W)"
+      {stage !== 'invitation' &&
+        stage !== 'final_reveal' &&
+        activeMemoryIndex === null &&
+        !portraitModalOpen &&
+        !activePlaque &&
+        !letterModalOpen &&
+        !crownRevealCardOpen &&
+        !customizerOpen &&
+        !controlsModalOpen && (
+          <div
+            style={{ touchAction: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+            onContextMenu={(e) => e.preventDefault()}
+            className="fixed bottom-12 left-3 z-30 flex flex-col items-center gap-1 pointer-events-auto"
           >
-            ▲
-          </button>
-          <div className="flex gap-1.5">
             <button
               type="button"
-              onPointerDown={(e) => { e.preventDefault(); setMobileMove(0, -1); }}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                setMobileMove(1, 0);
+              }}
               onPointerUp={() => setMobileMove(0, 0)}
               onPointerCancel={() => setMobileMove(0, 0)}
               onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
-              title="Step Left (A)"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#24050e]/95 border border-[#d4af37] flex items-center justify-center text-sm text-[#f3e5ab] shadow-lg active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+              title="Walk Forward (W)"
             >
-              ◀
+              ▲
             </button>
-            <button
-              type="button"
-              onPointerDown={(e) => { e.preventDefault(); setMobileMove(-1, 0); }}
-              onPointerUp={() => setMobileMove(0, 0)}
-              onPointerCancel={() => setMobileMove(0, 0)}
-              onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
-              title="Walk Backward (S)"
-            >
-              ▼
-            </button>
-            <button
-              type="button"
-              onPointerDown={(e) => { e.preventDefault(); setMobileMove(0, 1); }}
-              onPointerUp={() => setMobileMove(0, 0)}
-              onPointerCancel={() => setMobileMove(0, 0)}
-              onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
-              title="Step Right (D)"
-            >
-              ▶
-            </button>
+            <div className="flex gap-1">
+              <button
+                type="button"
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  setMobileMove(0, -1);
+                }}
+                onPointerUp={() => setMobileMove(0, 0)}
+                onPointerCancel={() => setMobileMove(0, 0)}
+                onPointerLeave={() => setMobileMove(0, 0)}
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#24050e]/95 border border-[#d4af37] flex items-center justify-center text-sm text-[#f3e5ab] shadow-lg active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+                title="Step Left (A)"
+              >
+                ◀
+              </button>
+              <button
+                type="button"
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  setMobileMove(-1, 0);
+                }}
+                onPointerUp={() => setMobileMove(0, 0)}
+                onPointerCancel={() => setMobileMove(0, 0)}
+                onPointerLeave={() => setMobileMove(0, 0)}
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#24050e]/95 border border-[#d4af37] flex items-center justify-center text-sm text-[#f3e5ab] shadow-lg active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+                title="Walk Backward (S)"
+              >
+                ▼
+              </button>
+              <button
+                type="button"
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  setMobileMove(0, 1);
+                }}
+                onPointerUp={() => setMobileMove(0, 0)}
+                onPointerCancel={() => setMobileMove(0, 0)}
+                onPointerLeave={() => setMobileMove(0, 0)}
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#24050e]/95 border border-[#d4af37] flex items-center justify-center text-sm text-[#f3e5ab] shadow-lg active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+                title="Step Right (D)"
+              >
+                ▶
+              </button>
+            </div>
+            <span className="text-[9px] tracking-widest uppercase text-[#f3e5ab] bg-[#1a040a]/80 px-1.5 py-0.5 rounded">
+              Move / Drag Look
+            </span>
           </div>
-          <span className="text-[10px] tracking-widest uppercase text-[#f3e5ab] bg-[#1a040a]/80 px-1.5 py-0.5 rounded">
-            Move / Drag Look
-          </span>
-        </div>
-      )}
+        )}
+
       {/* ====================================================================
-          SCENE 4 MODAL — THE ROYAL GALLERY OF MEMORIES CARD VIEWER
+          SCENE 4 MODAL — THE ROYAL GALLERY OF MEMORIES CARD VIEWER (SCROLLABLE ON PHONE)
       ==================================================================== */}
       {currentMemory && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm">
-          <div className="relative max-w-3xl w-full bg-[#24050e] border-2 border-[#d4af37] rounded-sm shadow-[0_0_70px_rgba(212,175,55,0.3)] overflow-hidden grid grid-cols-1 md:grid-cols-2">
-            {/* Close Button */}
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm">
+          <div className="relative max-w-3xl w-full max-h-[88dvh] overflow-y-auto bg-[#24050e] border-2 border-[#d4af37] rounded-sm shadow-[0_0_70px_rgba(212,175,55,0.3)] grid grid-cols-1 md:grid-cols-2">
+            {/* Sticky Close Button so it's always reachable on mobile */}
             <button
               onClick={() => setActiveMemoryIndex(null)}
-              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-[#1a040a]/90 border border-[#d4af37] flex items-center justify-center text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
+              className="fixed sm:absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-[#1a040a] border-2 border-[#d4af37] flex items-center justify-center text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] shadow-lg transition cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
 
             {/* Left Column: Photograph Display & Instant Owner Upload */}
-            <div className="relative min-h-[280px] sm:min-h-[380px] bg-[#160309] flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-[#d4af37]/40">
+            <div className="relative bg-[#160309] flex flex-col items-center justify-center p-4 sm:p-6 border-b md:border-b-0 md:border-r border-[#d4af37]/40">
               {currentMemory.imageUrl ? (
                 <img
                   src={currentMemory.imageUrl}
                   alt={currentMemory.title}
                   onError={handleImgError}
-                  className="w-full h-72 sm:h-80 object-cover border border-[#d4af37] rounded-sm shadow-lg"
+                  className="w-full max-h-56 sm:max-h-80 object-contain sm:object-cover border border-[#d4af37] rounded-sm shadow-lg"
                 />
               ) : (
-                <div className="w-full h-72 sm:h-80 border border-[#d4af37]/60 bg-gradient-to-b from-[#3b0a18] to-[#1a040a] flex flex-col items-center justify-center p-6 text-center rounded-sm">
-                  <Crown className="w-14 h-14 text-[#d4af37] mb-3 opacity-90" />
+                <div className="w-full h-52 sm:h-80 border border-[#d4af37]/60 bg-gradient-to-b from-[#3b0a18] to-[#1a040a] flex flex-col items-center justify-center p-4 text-center rounded-sm">
+                  <Crown className="w-10 h-10 sm:w-14 sm:h-14 text-[#d4af37] mb-2 opacity-90" />
                   <p className="text-xs tracking-[0.25em] uppercase text-[#f3e5ab] mb-1">
                     {currentMemory.code}
                   </p>
-                  <p className="text-lg font-bold text-[#fdfbf7] mb-2">{currentMemory.title}</p>
-                  <p className="text-xs italic text-[#e8b4bc]/80 max-w-xs">
-                    Royal Archival Frame — Upload a personal photograph below to display it inside
-                    this 3D golden frame.
+                  <p className="text-base sm:text-lg font-bold text-[#fdfbf7] mb-1">
+                    {currentMemory.title}
                   </p>
                 </div>
               )}
 
-              <label className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-sm border border-[#d4af37]/70 bg-[#3b0a18] hover:bg-[#4a0e1e] text-[#f3e5ab] text-xs tracking-wider uppercase cursor-pointer transition">
+              <label className="mt-3 inline-flex items-center gap-2 px-3.5 py-2 rounded-sm border border-[#d4af37]/70 bg-[#3b0a18] hover:bg-[#4a0e1e] text-[#f3e5ab] text-[11px] sm:text-xs tracking-wider uppercase cursor-pointer transition">
                 <Upload className="w-3.5 h-3.5 text-[#d4af37]" />
                 <span>Replace Photograph</span>
                 <input
@@ -2734,18 +2581,18 @@ export default function App() {
             </div>
 
             {/* Right Column: Editorial Memory Story & Navigation */}
-            <div className="p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-[#2b0712] to-[#190309]">
+            <div className="p-5 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-[#2b0712] to-[#190309]">
               <div>
-                <div className="text-xs tracking-[0.3em] uppercase text-[#d4af37] mb-1">
+                <div className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#d4af37] mb-1">
                   THE ROYAL GALLERY OF MEMORIES
                 </div>
-                <div className="text-xs italic text-[#e8b4bc] mb-4">{currentMemory.code}</div>
+                <div className="text-xs italic text-[#e8b4bc] mb-3">{currentMemory.code}</div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#f3e5ab] mb-4 leading-tight">
+                <h3 className="text-xl sm:text-3xl font-bold text-[#f3e5ab] mb-3 leading-snug">
                   {currentMemory.title}
                 </h3>
 
-                <div className="w-16 h-0.5 bg-[#d4af37] mb-5" />
+                <div className="w-16 h-0.5 bg-[#d4af37] mb-4" />
 
                 <p className="text-sm sm:text-base leading-relaxed text-[#fdfbf7]/90 italic mb-6">
                   "{currentMemory.caption}"
@@ -2753,17 +2600,17 @@ export default function App() {
               </div>
 
               {/* Previous / Next Memory Controls */}
-              <div className="pt-4 border-t border-[#d4af37]/30 flex items-center justify-between">
+              <div className="pt-3 border-t border-[#d4af37]/30 flex items-center justify-between gap-2">
                 <button
                   onClick={() => {
                     const prevIdx =
                       (activeMemoryIndex - 1 + memories.length) % memories.length;
                     focusMemoryFrame(prevIdx);
                   }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 border border-[#d4af37]/60 rounded-sm text-xs tracking-wider uppercase text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
+                  className="inline-flex items-center gap-1 px-3 py-2 border border-[#d4af37]/60 rounded-sm text-xs tracking-wider uppercase text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  <span>Previous</span>
+                  <span>Prev</span>
                 </button>
 
                 <span className="text-xs text-[#e8b4bc]">
@@ -2775,7 +2622,7 @@ export default function App() {
                     const nextIdx = (activeMemoryIndex + 1) % memories.length;
                     focusMemoryFrame(nextIdx);
                   }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 border border-[#d4af37]/60 rounded-sm text-xs tracking-wider uppercase text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
+                  className="inline-flex items-center gap-1 px-3 py-2 border border-[#d4af37]/60 rounded-sm text-xs tracking-wider uppercase text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
                 >
                   <span>Next</span>
                   <ChevronRight className="w-4 h-4" />
@@ -2787,14 +2634,14 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          SCENE 5 MODAL — THE ROYAL PORTRAIT HALL (SHRUTI'S MASTERPIECE)
+          SCENE 5 MODAL — THE ROYAL PORTRAIT HALL (SCROLLABLE ON PHONE)
       ==================================================================== */}
       {portraitModalOpen && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="relative max-w-lg w-full bg-[#24050e] border-2 border-[#d4af37] p-6 sm:p-8 rounded-sm text-center shadow-[0_0_80px_rgba(212,175,55,0.35)]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm">
+          <div className="relative max-w-lg w-full max-h-[88dvh] overflow-y-auto bg-[#24050e] border-2 border-[#d4af37] p-5 sm:p-8 rounded-sm text-center shadow-[0_0_80px_rgba(212,175,55,0.35)]">
             <button
               onClick={() => setPortraitModalOpen(false)}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#1a040a] border border-[#d4af37] flex items-center justify-center text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
+              className="sticky sm:absolute top-2 right-2 ml-auto w-9 h-9 rounded-full bg-[#1a040a] border-2 border-[#d4af37] flex items-center justify-center text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#1a040a] transition cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -2802,11 +2649,11 @@ export default function App() {
             <p className="text-xs tracking-[0.3em] uppercase text-[#d4af37] mb-1">
               THE ROYAL PORTRAIT HALL
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#f3e5ab] italic mb-5">
+            <h3 className="text-lg sm:text-2xl font-bold text-[#f3e5ab] italic mb-4">
               "Some princess wear tikas too."
             </h3>
 
-            <div className="mx-auto w-60 h-72 sm:w-64 sm:h-80 border-4 border-[#d4af37] bg-[#3b0a18] rounded-sm overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.3)] mb-5 flex items-center justify-center">
+            <div className="mx-auto w-52 h-64 sm:w-64 sm:h-80 border-4 border-[#d4af37] bg-[#3b0a18] rounded-sm overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.3)] mb-5 flex items-center justify-center">
               {shrutiPortraitUrl ? (
                 <img
                   src={shrutiPortraitUrl}
@@ -2815,20 +2662,16 @@ export default function App() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="p-6 text-center">
-                  <Crown className="w-14 h-14 text-[#f3e5ab] mx-auto mb-3" />
-                  <p className="text-lg font-bold text-[#fdfbf7]">HER ROYAL HIGHNESS</p>
-                  <p className="text-xl font-bold text-[#d4af37] mb-2">PRINCESS SHRUTI</p>
-                  <p className="text-xs italic text-[#e8b4bc]">
-                    Upload Shruti’s photograph below to display it in the central golden portrait
-                    frame.
-                  </p>
+                <div className="p-4 text-center">
+                  <Crown className="w-12 h-12 text-[#f3e5ab] mx-auto mb-2" />
+                  <p className="text-base font-bold text-[#fdfbf7]">HER ROYAL HIGHNESS</p>
+                  <p className="text-lg font-bold text-[#d4af37] mb-2">PRINCESS SHRUTI</p>
                 </div>
               )}
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <label className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-widest uppercase rounded-sm cursor-pointer shadow-lg hover:scale-105 transition">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <label className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-widest uppercase rounded-sm cursor-pointer shadow-lg">
                 <Upload className="w-4 h-4" />
                 <span>Upload Shruti's Portrait</span>
                 <input
@@ -2848,7 +2691,7 @@ export default function App() {
                   setPortraitModalOpen(false);
                   navigateToWaypoint('garden');
                 }}
-                className="px-5 py-2.5 border border-[#d4af37] text-[#f3e5ab] text-xs tracking-widest uppercase rounded-sm hover:bg-[#d4af37]/20 transition cursor-pointer"
+                className="w-full sm:w-auto px-5 py-2.5 border border-[#d4af37] text-[#f3e5ab] text-xs tracking-widest uppercase rounded-sm hover:bg-[#d4af37]/20 transition cursor-pointer"
               >
                 Enter the Rose Garden →
               </button>
@@ -2861,20 +2704,20 @@ export default function App() {
           SCENE 6 MODAL — INTERACTIVE ROSE GARDEN BRASS PLAQUE
       ==================================================================== */}
       {activePlaque && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="relative max-w-md w-full bg-gradient-to-b from-[#3d2914] via-[#2b1b0c] to-[#1f1207] border-2 border-[#d4af37] p-8 rounded-sm text-center shadow-[0_0_60px_rgba(212,175,55,0.4)]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+          <div className="relative max-w-md w-full max-h-[85dvh] overflow-y-auto bg-gradient-to-b from-[#3d2914] via-[#2b1b0c] to-[#1f1207] border-2 border-[#d4af37] p-6 sm:p-8 rounded-sm text-center shadow-[0_0_60px_rgba(212,175,55,0.4)]">
             <div className="absolute inset-2 border border-[#f3e5ab]/30 pointer-events-none" />
-            <Flower2 className="w-10 h-10 text-[#e8b4bc] mx-auto mb-3" />
-            <p className="text-xs tracking-[0.3em] uppercase text-[#d4af37] mb-2">
+            <Flower2 className="w-9 h-9 text-[#e8b4bc] mx-auto mb-3" />
+            <p className="text-xs tracking-[0.25em] uppercase text-[#d4af37] mb-2">
               {activePlaque.title}
             </p>
-            <blockquote className="text-2xl sm:text-3xl font-bold italic text-[#f3e5ab] my-5 leading-snug">
+            <blockquote className="text-xl sm:text-3xl font-bold italic text-[#f3e5ab] my-4 leading-snug">
               "{activePlaque.quote}"
             </blockquote>
             <p className="text-xs text-[#e8b4bc] italic mb-6">{activePlaque.subtext}</p>
             <button
               onClick={() => setActivePlaque(null)}
-              className="px-6 py-2 bg-[#d4af37] text-[#1a040a] font-bold text-xs tracking-[0.2em] uppercase rounded-sm hover:bg-[#f3e5ab] transition cursor-pointer"
+              className="px-6 py-2.5 bg-[#d4af37] text-[#1a040a] font-bold text-xs tracking-[0.2em] uppercase rounded-sm hover:bg-[#f3e5ab] transition cursor-pointer"
             >
               Continue Through Garden
             </button>
@@ -2883,71 +2726,73 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          SCENE 7 MODAL — THE ROYAL PARCHMENT LETTER
+          SCENE 7 MODAL — THE ROYAL PARCHMENT LETTER (SCROLLABLE ON PHONE)
       ==================================================================== */}
       {letterModalOpen && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
           <div
-            className="relative max-w-xl w-full my-auto p-8 sm:p-12 rounded-sm shadow-[0_0_90px_rgba(212,175,55,0.45)] border-4 border-[#c59b27] text-[#2c1810]"
+            className="relative max-w-xl w-full max-h-[88dvh] overflow-y-auto p-6 sm:p-12 rounded-sm shadow-[0_0_90px_rgba(212,175,55,0.45)] border-4 border-[#c59b27] text-[#2c1810]"
             style={{
               background:
                 'radial-gradient(circle at center, #fdfbf7 0%, #f5ead6 70%, #e6d3b3 100%)'
             }}
           >
-            {/* Inner Filigree Border */}
-            <div className="absolute inset-3 border border-[#8b6914]/45 pointer-events-none" />
-
-            {/* Close Button */}
             <button
               onClick={() => setLetterModalOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#3b0a18] text-[#f3e5ab] flex items-center justify-center hover:bg-[#591125] transition cursor-pointer"
+              className="sticky top-1 float-right w-8 h-8 rounded-full bg-[#3b0a18] text-[#f3e5ab] flex items-center justify-center hover:bg-[#591125] transition cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
 
-            {/* Crimson & Gold Wax Seal Header */}
-            <div className="flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full bg-[#7a091e] border-2 border-[#d4af37] flex items-center justify-center shadow-md mb-2">
-                <Crown className="w-7 h-7 text-[#f3e5ab]" />
+            <div className="flex flex-col items-center mb-5 clear-both">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#7a091e] border-2 border-[#d4af37] flex items-center justify-center shadow-md mb-2">
+                <Crown className="w-6 h-6 sm:w-7 sm:h-7 text-[#f3e5ab]" />
               </div>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-[#7a091e] font-bold">
+              <p className="text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#7a091e] font-bold text-center">
                 TO: HER ROYAL HIGHNESS SHRUTI
               </p>
             </div>
 
-            <div className="space-y-4 text-base sm:text-lg leading-relaxed font-serif text-[#2c1810]">
-              <p className="font-bold text-xl text-[#4a0e1e]">Dear Shruti,</p>
+            <div className="space-y-3.5 text-sm sm:text-lg leading-relaxed font-serif text-[#2c1810]">
+              <p className="font-bold text-lg sm:text-xl text-[#4a0e1e]">Dear Shruti,</p>
               <p>
-                Some people have a way of making even the simplest moments memorable. You're one of those people.
+                Some people have a way of making even the simplest moments memorable. You're one of
+                those people.
               </p>
               <p>
-                From your thoughtful way of looking at things to your brilliant little mind, from your quick answers to your wonderfully unpredictable conversations, there's always something that makes you unmistakably you.
+                From your thoughtful way of looking at things to your brilliant little mind, from
+                your quick answers to your wonderfully unpredictable conversations, there's always
+                something that makes you unmistakably you.
               </p>
               <p>
-                And honestly, a princess who doesn't even know when her own Princess Day is deserves a special announcement!
+                And honestly, a princess who doesn't even know when her own Princess Day is deserves
+                a special announcement!
               </p>
-              <p className="font-bold text-[#7a091e] text-xl py-1">
+              <p className="font-bold text-[#7a091e] text-lg sm:text-xl py-1">
                 Happy Princess Day, Your Highness.
               </p>
               <p>
-                May you always have reasons to smile, dreams worth chasing, adventures worth remembering, and people who remind you how wonderful you are.
+                May you always have reasons to smile, dreams worth chasing, adventures worth
+                remembering, and people who remind you how wonderful you are.
               </p>
-              <div className="pt-4 text-right">
+              <div className="pt-3 text-right">
                 <p className="italic text-[#5c3a21]">With royal regards,</p>
-                <p className="font-bold text-lg text-[#4a0e1e]">Your Royal Kingdom.</p>
+                <p className="font-bold text-base sm:text-lg text-[#4a0e1e]">
+                  Your Royal Kingdom.
+                </p>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-6 flex items-center justify-center">
               <button
                 onClick={() => {
                   setLetterModalOpen(false);
                   navigateToWaypoint('crown');
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#4a0e1e] text-[#f3e5ab] border border-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase rounded-sm hover:bg-[#3b0a18] shadow-lg transition cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#4a0e1e] text-[#f3e5ab] border border-[#d4af37] text-xs font-bold tracking-[0.15em] uppercase rounded-sm hover:bg-[#3b0a18] shadow-lg transition cursor-pointer"
               >
                 <Crown className="w-4 h-4 text-[#d4af37]" />
-                <span>Proceed to the Crown Ceremony →</span>
+                <span>Proceed to Crown Ceremony →</span>
               </button>
             </div>
           </div>
@@ -2958,18 +2803,25 @@ export default function App() {
           SCENE 8 MODAL — CROWN CLAIMED & PERSONALIZED PORTRAIT REVEAL
       ==================================================================== */}
       {crownRevealCardOpen && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm">
-          <div className="relative max-w-md w-full bg-[#24050e]/95 border-2 border-[#d4af37] p-8 rounded-sm text-center shadow-[0_0_90px_rgba(212,175,55,0.55)]">
-            <Crown className="w-12 h-12 text-[#f3e5ab] mx-auto mb-2 animate-bounce" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+          <div className="relative max-w-md w-full max-h-[88dvh] overflow-y-auto bg-[#24050e]/95 border-2 border-[#d4af37] p-6 sm:p-8 rounded-sm text-center shadow-[0_0_90px_rgba(212,175,55,0.55)]">
+            <button
+              onClick={() => setCrownRevealCardOpen(false)}
+              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#1a040a] border border-[#d4af37] flex items-center justify-center text-[#f3e5ab] cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <Crown className="w-10 h-10 sm:w-12 sm:h-12 text-[#f3e5ab] mx-auto mb-2 animate-bounce" />
             <p className="text-xs tracking-[0.3em] uppercase text-[#d4af37] mb-1">
               THE ROYAL CORONATION
             </p>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#fdfbf7] mb-4">
+            <h3 className="text-xl sm:text-3xl font-bold text-[#fdfbf7] mb-4">
               Her Royal Highness Shruti
             </h3>
 
             {shrutiPortraitUrl && (
-              <div className="mx-auto w-44 h-52 border-2 border-[#d4af37] rounded-sm overflow-hidden mb-4 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+              <div className="mx-auto w-36 h-44 sm:w-44 sm:h-52 border-2 border-[#d4af37] rounded-sm overflow-hidden mb-4 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                 <img
                   src={shrutiPortraitUrl}
                   alt="Princess Shruti"
@@ -2979,13 +2831,13 @@ export default function App() {
               </div>
             )}
 
-            <p className="text-sm sm:text-base italic text-[#e8b4bc] mb-6">
+            <p className="text-xs sm:text-base italic text-[#e8b4bc] mb-5">
               "The crown is yours, Your Highness. May your kingdom forever shine in golden light."
             </p>
 
             <button
               onClick={handleLaunchFinalReveal}
-              className="w-full py-3.5 bg-gradient-to-r from-[#b8860b] via-[#f3e5ab] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-[0.22em] uppercase rounded-sm shadow-[0_0_35px_rgba(243,229,171,0.6)] hover:scale-[1.02] transition cursor-pointer"
+              className="w-full py-3.5 bg-gradient-to-r from-[#b8860b] via-[#f3e5ab] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-[0.18em] uppercase rounded-sm shadow-[0_0_35px_rgba(243,229,171,0.6)] hover:scale-[1.02] transition cursor-pointer"
             >
               ✨ Witness the Final Royal Reveal ✨
             </button>
@@ -2997,38 +2849,38 @@ export default function App() {
           FINAL SCENE (SCENE 9) — THE ROYAL REVEAL CELEBRATION OVERLAY
       ==================================================================== */}
       {stage === 'final_reveal' && (
-        <div className="pointer-events-none fixed inset-0 z-30 flex flex-col items-center justify-center px-6 text-center">
-          <div className="pointer-events-auto max-w-2xl w-full bg-[#1a040a]/75 backdrop-blur-md border border-[#d4af37]/70 p-8 sm:p-12 rounded-sm shadow-[0_0_90px_rgba(212,175,55,0.35)]">
-            <div className="mx-auto mb-4 w-16 h-16 rounded-full border-2 border-[#d4af37] bg-[#3b0a18] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.5)]">
-              <Crown className="w-9 h-9 text-[#f3e5ab] animate-pulse" />
+        <div className="pointer-events-none fixed inset-0 z-30 flex flex-col items-center justify-center p-4 text-center">
+          <div className="pointer-events-auto max-w-2xl w-full max-h-[82dvh] overflow-y-auto bg-[#1a040a]/80 backdrop-blur-md border border-[#d4af37]/70 p-6 sm:p-12 rounded-sm shadow-[0_0_90px_rgba(212,175,55,0.35)]">
+            <div className="mx-auto mb-3 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#d4af37] bg-[#3b0a18] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.5)]">
+              <Crown className="w-7 h-7 sm:w-9 sm:h-9 text-[#f3e5ab] animate-pulse" />
             </div>
 
-            <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-[#e8b4bc] mb-2">
+            <p className="text-[10px] sm:text-sm tracking-[0.35em] uppercase text-[#e8b4bc] mb-2">
               THE DISNEY REGENCY PROCLAIMS
             </p>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-[0.12em] text-[#f3e5ab] mb-2">
+            <h1 className="text-2xl sm:text-5xl font-bold tracking-[0.12em] text-[#f3e5ab] mb-1">
               HAPPY PRINCESS DAY
             </h1>
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-[0.18em] text-[#fdfbf7] mb-6">
+            <h2 className="text-xl sm:text-4xl font-bold tracking-[0.16em] text-[#fdfbf7] mb-5">
               PRINCESS SHRUTI
             </h2>
 
-            <div className="w-24 h-0.5 bg-[#d4af37] mx-auto mb-6" />
+            <div className="w-20 h-0.5 bg-[#d4af37] mx-auto mb-5" />
 
-            <p className="text-lg sm:text-xl italic text-[#f3e5ab] mb-2">
+            <p className="text-base sm:text-xl italic text-[#f3e5ab] mb-1">
               "Your royal day has finally arrived."
             </p>
-            <p className="text-base sm:text-lg text-[#e8b4bc] mb-8">
+            <p className="text-sm sm:text-lg text-[#e8b4bc] mb-6">
               "Stay magical, Your Highness."
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => {
                   setStage('exploring');
                   navigateToWaypoint('exterior');
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-[0.2em] uppercase rounded-sm shadow-lg hover:scale-105 transition cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-[#1a040a] font-bold text-xs tracking-[0.2em] uppercase rounded-sm shadow-lg cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>[ REPLAY EXPERIENCE ]</span>
@@ -3039,7 +2891,7 @@ export default function App() {
                   setStage('exploring');
                   navigateToWaypoint('gallery');
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[#d4af37] bg-[#3b0a18]/90 text-[#f3e5ab] font-bold text-xs tracking-[0.2em] uppercase rounded-sm hover:bg-[#4a0e1e] transition cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#d4af37] bg-[#3b0a18]/90 text-[#f3e5ab] font-bold text-xs tracking-[0.2em] uppercase rounded-sm hover:bg-[#4a0e1e] transition cursor-pointer"
               >
                 <Compass className="w-4 h-4" />
                 <span>[ FREE EXPLORE PALACE ]</span>
@@ -3050,15 +2902,15 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          ROYAL PHOTO CUSTOMIZER DRAWER (REPLACE SHRUTI'S PORTRAIT & 5 MEMORIES)
+          ROYAL PHOTO CUSTOMIZER DRAWER
       ==================================================================== */}
       {customizerOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-black/70 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-[#20040c] border-l-2 border-[#d4af37] h-full overflow-y-auto p-6 text-[#fdfbf7]">
-            <div className="flex items-center justify-between pb-4 border-b border-[#d4af37]/40 mb-6">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-sm">
+          <div className="w-full max-w-md bg-[#20040c] border-l-2 border-[#d4af37] h-full overflow-y-auto p-5 sm:p-6 text-[#fdfbf7]">
+            <div className="flex items-center justify-between pb-4 border-b border-[#d4af37]/40 mb-5">
               <div className="flex items-center gap-2">
                 <Camera className="w-5 h-5 text-[#d4af37]" />
-                <h3 className="text-lg font-bold tracking-wider text-[#f3e5ab] uppercase">
+                <h3 className="text-base sm:text-lg font-bold tracking-wider text-[#f3e5ab] uppercase">
                   Royal Photo Archives
                 </h3>
               </div>
@@ -3070,14 +2922,12 @@ export default function App() {
               </button>
             </div>
 
-            <p className="text-xs text-[#e8b4bc] italic mb-6">
+            <p className="text-xs text-[#e8b4bc] italic mb-5">
               Upload real photographs for Princess Shruti’s central portrait and the five Memory
-              Gallery frames. They immediately appear inside the 3D palace frames without altering
-              her features.
+              Gallery frames. They immediately appear inside the 3D palace frames.
             </p>
 
-            {/* Shruti's Masterpiece Portrait Uploader */}
-            <div className="p-4 border border-[#d4af37]/50 bg-[#3b0a18]/60 rounded-sm mb-6">
+            <div className="p-4 border border-[#d4af37]/50 bg-[#3b0a18]/60 rounded-sm mb-5">
               <div className="text-xs font-bold tracking-widest text-[#d4af37] uppercase mb-1">
                 Scene V — Central Masterpiece Frame
               </div>
@@ -3098,16 +2948,15 @@ export default function App() {
               </label>
             </div>
 
-            {/* 5 Memory Gallery Frames Uploaders */}
-            <div className="space-y-3">
+            <div className="space-y-3 pb-8">
               {memories.map((mem, idx) => (
                 <div
                   key={mem.id}
                   className="p-3.5 border border-[#d4af37]/35 bg-[#2c0712]/80 rounded-sm flex items-center justify-between gap-3"
                 >
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-[11px] text-[#d4af37] font-bold">{mem.code}</div>
-                    <div className="text-xs font-bold text-[#fdfbf7]">{mem.title}</div>
+                    <div className="text-xs font-bold text-[#fdfbf7] truncate">{mem.title}</div>
                   </div>
                   <label className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#d4af37] text-[#f3e5ab] text-[11px] tracking-wider uppercase rounded-sm cursor-pointer hover:bg-[#d4af37] hover:text-[#1a040a] transition">
                     <Upload className="w-3 h-3" />
@@ -3129,11 +2978,11 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          CONTROLS & PALACE GUIDE MODAL (ESC)
+          CONTROLS, AUDIO VOLUME & PALACE GUIDE MODAL (INCLUDES MOBILE VOLUME)
       ==================================================================== */}
       {controlsModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="relative max-w-md w-full bg-[#24050e] border-2 border-[#d4af37] p-6 sm:p-8 rounded-sm shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+          <div className="relative max-w-md w-full max-h-[88dvh] overflow-y-auto bg-[#24050e] border-2 border-[#d4af37] p-6 sm:p-8 rounded-sm shadow-2xl">
             <button
               onClick={() => setControlsModalOpen(false)}
               className="absolute top-3 right-3 w-8 h-8 rounded-full border border-[#d4af37] flex items-center justify-center text-[#f3e5ab] cursor-pointer"
@@ -3141,32 +2990,55 @@ export default function App() {
               <X className="w-4 h-4" />
             </button>
 
-            <h3 className="text-xl font-bold text-[#f3e5ab] tracking-wider uppercase mb-4">
-              Royal Exploration Guide
+            <h3 className="text-lg sm:text-xl font-bold text-[#f3e5ab] tracking-wider uppercase mb-4">
+              Royal Settings & Guide
             </h3>
+
+            {/* Mobile-Accessible Music Volume Slider */}
+            <div className="p-3.5 mb-5 rounded-sm border border-[#d4af37]/40 bg-[#3b0a18]/60">
+              <div className="flex items-center justify-between text-xs text-[#f3e5ab] uppercase tracking-wider mb-2">
+                <span className="flex items-center gap-1.5">
+                  <Music className="w-3.5 h-3.5 text-[#d4af37]" />
+                  Royal Music Volume
+                </span>
+                <span>{Math.round(musicVolume * 100)}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value={musicVolume}
+                onChange={(e) => {
+                  const v = parseFloat(e.target.value);
+                  setMusicVolume(v);
+                  if (audioRef.current) audioRef.current.setVolume(v);
+                }}
+                className="w-full accent-[#d4af37] cursor-pointer"
+              />
+            </div>
 
             <ul className="space-y-3 text-xs sm:text-sm text-[#fdfbf7]/90 mb-6">
               <li className="flex items-start gap-2.5">
                 <Move className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Walk Freely:</strong> Use <strong>W, A, S, D</strong> or{' '}
-                  <strong>Arrow Keys</strong> (or the on-screen touch arrows on mobile) to walk
-                  through every room and garden.
+                  <strong>Walk Freely:</strong> Use the on-screen touch arrows (bottom-left) or{' '}
+                  <strong>W, A, S, D</strong> keys to walk through every room and garden.
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Compass className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Look Around:</strong> Click and drag anywhere on the 3D scene to look
-                  around the palace freely.
+                  <strong>Look Around:</strong> Touch and drag anywhere on the 3D palace to look
+                  around freely.
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Sparkles className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Interact:</strong> Click directly on the 3D palace doors, golden memory
-                  frames, Shruti’s portrait, garden plaques, the wax-sealed envelope, or the golden
-                  crown—or use the bottom bar to glide between milestones.
+                  <strong>Jump to Any Room:</strong> Swipe the bottom bar left/right on your phone
+                  to see all 9 palace milestones (Exterior, Doors, Gallery, Memories, Portrait,
+                  Rose Garden, Letter, Crown, Finale).
                 </span>
               </li>
             </ul>
@@ -3182,21 +3054,21 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          BOTTOM MILESTONE / SCENE SELECTOR HUD BAR
+          BOTTOM MILESTONE / SCENE SELECTOR HUD BAR (SWIPEABLE ON MOBILE)
       ==================================================================== */}
       {stage !== 'invitation' && (
-        <nav className="fixed bottom-0 inset-x-0 z-30 bg-gradient-to-t from-[#160308] via-[#160308]/90 to-transparent py-2.5 px-3">
-          <div className="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav className="fixed bottom-0 inset-x-0 z-30 bg-gradient-to-t from-[#160308] via-[#160308]/95 to-transparent py-2 px-2 sm:px-3">
+          <div className="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
             {SCENE_WAYPOINTS.map((wp) => {
               const isActive = activeWaypoint === wp.id;
               return (
                 <button
                   key={wp.id}
                   onClick={() => navigateToWaypoint(wp.id)}
-                  className={`shrink-0 px-3 py-1.5 rounded-sm text-[11px] tracking-wider uppercase transition cursor-pointer border ${
+                  className={`shrink-0 px-2.5 sm:px-3 py-1.5 rounded-sm text-[10px] sm:text-[11px] tracking-wider uppercase transition cursor-pointer border ${
                     isActive
                       ? 'bg-[#d4af37] text-[#1a040a] border-[#f3e5ab] font-bold shadow-[0_0_15px_rgba(212,175,55,0.5)]'
-                      : 'bg-[#2a0611]/85 text-[#f3e5ab]/85 border-[#d4af37]/35 hover:border-[#d4af37] hover:text-[#fdfbf7]'
+                      : 'bg-[#2a0611]/90 text-[#f3e5ab]/85 border-[#d4af37]/35 hover:border-[#d4af37] hover:text-[#fdfbf7]'
                   }`}
                 >
                   {wp.shortLabel}
