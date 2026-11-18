@@ -11,93 +11,12 @@ import {
   ChevronRight,
   X,
   Compass,
-  BookOpen,
-  Heart,
   Upload,
-  Play,
   RotateCcw,
-  Pause,
   HelpCircle,
-  Award,
   Flower2,
-  DoorOpen,
-  Image as ImageIcon,
-  Check,
   Move
 } from 'lucide-react';
-
-const INITIAL_MEMORIES = [
-  {
-    id: 1,
-    code: 'MEMORY 01',
-    title: 'A BEAUTIFUL BEGINNING',
-    subtitle: 'Chapter I of the Royal Archives',
-    caption:
-      'Every fairytale has a moment where the light changes and an ordinary day quietly becomes unforgettable. Your warmth and grace turned the very first chapter into pure magic.',
-    date: 'The First Royal Chronicle',
-    position: { x: -8.6, y: 4.5, z: 18, rotY: Math.PI / 2 },
-    viewPos: { x: -3.2, y: 4.4, z: 18 },
-    themeColors: ['#4a0e1e', '#d4af37', '#f8bbd0'],
-    motif: 'sunrise',
-    imageUrl: './photo1.jpg'
-  },
-  {
-    id: 2,
-    code: 'MEMORY 02',
-    title: 'LITTLE MOMENTS',
-    subtitle: 'Chapter II of the Royal Archives',
-    caption:
-      'It is never just the grand banquets that define a kingdom—it is the spontaneous laughter, the shared glances, and the tiny everyday moments that shine brighter than gold.',
-    date: 'Golden Afternoon Echoes',
-    position: { x: 8.6, y: 4.5, z: 12, rotY: -Math.PI / 2 },
-    viewPos: { x: 3.2, y: 4.4, z: 12 },
-    themeColors: ['#2c1810', '#e8b4bc', '#f3e5ab'],
-    motif: 'stars',
-    imageUrl: './photo2.jpg'
-  },
-  {
-    id: 3,
-    code: 'MEMORY 03',
-    title: 'THE ICE CREAM TREATY',
-    subtitle: 'Chapter III of the Royal Archives',
-    caption:
-      'Ratified under the highest royal authority: no matter how busy or chaotic the world becomes, an impromptu treaty sealed with sweet ice cream restores peace and joy immediately.',
-    date: 'The Sweetest Decree',
-    position: { x: -8.6, y: 4.5, z: 4, rotY: Math.PI / 2 },
-    viewPos: { x: -3.2, y: 4.4, z: 4 },
-    themeColors: ['#3b0a18', '#f48fb1', '#fff8e7'],
-    motif: 'treaty',
-    imageUrl: './photo3.jpg'
-  },
-  {
-    id: 4,
-    code: 'MEMORY 04',
-    title: 'THE UNFORGETTABLE DAYS',
-    subtitle: 'Chapter IV of the Royal Archives',
-    caption:
-      'Sunlit adventures, endless conversations, and memories etched into time. Whenever the palace halls grow quiet, these are the days that fill the kingdom with music.',
-    date: 'Timeless Horizons',
-    position: { x: 8.6, y: 4.5, z: -4, rotY: -Math.PI / 2 },
-    viewPos: { x: 3.2, y: 4.4, z: -4 },
-    themeColors: ['#4a1525', '#d4af37', '#fce4ec'],
-    motif: 'palace',
-    imageUrl: './photo4.jpg'
-  },
-  {
-    id: 5,
-    code: 'MEMORY 05',
-    title: 'A MEMORY TO KEEP',
-    subtitle: 'Chapter V of the Royal Archives',
-    caption:
-      'Preserved forever in the heart of the palace. Through every season ahead, may you always remember how deeply cherished, admired, and celebrated you truly are.',
-    date: 'Forever & Always',
-    position: { x: -8.6, y: 4.5, z: -11, rotY: Math.PI / 2 },
-    viewPos: { x: -3.2, y: 4.4, z: -11 },
-    themeColors: ['#2a0812', '#e6c65a', '#f8bbd0'],
-    motif: 'crown',
-    imageUrl: './photo5.jpg'
-  }
-];
 
 // ============================================================================
 // DEFAULT ROYAL DATA — MEMORIES, PLAQUES & INITIAL PLACEHOLDER ARTWORK
@@ -167,8 +86,8 @@ const INITIAL_MEMORIES = [
     caption:
       'Preserved forever in the heart of the palace. Through every season ahead, may you always remember how deeply cherished, admired, and celebrated you truly are.',
     date: 'Forever & Always',
-    position: { x: -8.6, y: 4.5, z: -11, rotY: Math.PI / 2 },
-    viewPos: { x: -3.2, y: 4.4, z: -11 },
+    position: { x: -8.6, y: 4.5, z: -12.5, rotY: Math.PI / 2 },
+    viewPos: { x: -3.2, y: 4.4, z: -12.5 },
     themeColors: ['#2a0812', '#e6c65a', '#f8bbd0'],
     motif: 'crown',
     imageUrl: './photo5.jpg'
@@ -572,6 +491,8 @@ function createMarbleTexture() {
   }
 
   const tex = new THREE.CanvasTexture(canvas);
+
+  tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
   tex.repeat.set(6, 18);
@@ -606,9 +527,11 @@ function createCarpetTexture() {
   }
 
   const tex = new THREE.CanvasTexture(canvas);
+
+  tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
-  tex.repeat.set(1, 14);
+  tex.repeat.set(1, 7);
   return tex;
 }
 
@@ -718,6 +641,8 @@ function createMemoryFrameCanvasTexture(memory, loadedImg = null) {
   ctx.fillText('Click to Open Royal Memory', 256, 588);
 
   const tex = new THREE.CanvasTexture(canvas);
+
+  tex.colorSpace = THREE.SRGBColorSpace;
   tex.needsUpdate = true;
   return tex;
 }
@@ -833,9 +758,26 @@ function createRoyalPortraitTexture(loadedImg = null) {
   ctx.fillText('Click to Inspect or Upload Royal Portrait', 300, 722);
 
   const tex = new THREE.CanvasTexture(canvas);
+
+  tex.colorSpace = THREE.SRGBColorSpace;
   tex.needsUpdate = true;
   return tex;
 }
+
+// Fallback shown when a photo file is missing
+const PLACEHOLDER_IMG =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="480">' +
+      '<rect width="100%" height="100%" fill="#3b0a18"/>' +
+      '<path d="M120 300 L100 180 L170 240 L200 150 L230 240 L300 180 L280 300 Z" fill="#d4af37"/>' +
+      '<text x="200" y="360" font-family="Georgia,serif" font-size="20" fill="#f3e5ab" text-anchor="middle">Photo coming soon</text>' +
+      '</svg>'
+  );
+const handleImgError = (e) => {
+  e.currentTarget.onerror = null;
+  e.currentTarget.src = PLACEHOLDER_IMG;
+};
 
 // ============================================================================
 // MAIN APPLICATION COMPONENT
@@ -889,6 +831,7 @@ export default function App() {
     moveState: { forward: 0, right: 0 },
     isDraggingLook: false
   });
+  const handlersRef = useRef({});
 
   // Initialize Audio Engine ref
   useEffect(() => {
@@ -970,7 +913,7 @@ export default function App() {
         sc.playerPitch = euler.x;
       });
     },
-    [doorsOpened, flyCameraTo, stage]
+    [doorsOpened, flyCameraTo]
   );
 
   // Start the Palace Experience from Invitation Screen
@@ -1078,17 +1021,14 @@ export default function App() {
       const dataUrl = e.target.result;
       const img = new Image();
       img.onload = () => {
-        setMemories((prev) => {
-          const updated = [...prev];
-          updated[memoryIndex] = { ...updated[memoryIndex], imageUrl: dataUrl };
-          const mesh = sceneObjectsRef.current.memoryFrameMeshes[memoryIndex];
-          if (mesh) {
-            const newTex = createMemoryFrameCanvasTexture(updated[memoryIndex], img);
-            mesh.material.map = newTex;
-            mesh.material.needsUpdate = true;
-          }
-          return updated;
-        });
+        const mesh = sceneObjectsRef.current.memoryFrameMeshes[memoryIndex];
+        if (mesh) {
+          mesh.material.map = createMemoryFrameCanvasTexture(INITIAL_MEMORIES[memoryIndex], img);
+          mesh.material.needsUpdate = true;
+        }
+        setMemories((prev) =>
+          prev.map((m, i) => (i === memoryIndex ? { ...m, imageUrl: dataUrl } : m))
+        );
         if (audioRef.current) audioRef.current.playSparkle();
       };
       img.src = dataUrl;
@@ -1134,6 +1074,8 @@ export default function App() {
     },
     [flyCameraTo, memories]
   );
+
+  handlersRef.current = { handleOpenGrandDoors, focusMemoryFrame, handleClaimCrown };
 
   // ============================================================================
   // THREE.JS COMPLETE 3D PALACE CONSTRUCTION & INTERACTION LOOP
@@ -1265,6 +1207,7 @@ export default function App() {
     sCtx.fillStyle = skyGrad;
     sCtx.fillRect(0, 0, 64, 256);
     const skyTex = new THREE.CanvasTexture(skyCanvas);
+    skyTex.colorSpace = THREE.SRGBColorSpace;
     const skyMesh = new THREE.Mesh(
       skyGeo,
       new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide, fog: false })
@@ -1463,6 +1406,15 @@ export default function App() {
     const lintelTop = new THREE.Mesh(new THREE.BoxGeometry(8.8, 1.2, 2.0), matGold);
     lintelTop.position.set(0, 8.9, 36);
     scene.add(lintelTop);
+
+    // Wall panels between the door jambs and the palace wings
+    [-6.15, 6.15].forEach((wx) => {
+      const sideWall = new THREE.Mesh(new THREE.BoxGeometry(3.7, 8.8, 1.8), matCreamStone);
+      sideWall.position.set(wx, 4.4, 36);
+      sideWall.castShadow = true;
+      sideWall.receiveShadow = true;
+      scene.add(sideWall);
+    });
 
     // Left and Right Pivoting Walnut Doors
     const leftDoorPivot = new THREE.Group();
@@ -1667,22 +1619,25 @@ export default function App() {
       outerGold.castShadow = true;
       frameGroup.add(outerGold);
 
-     const portraitTex = createRoyalPortraitTexture(null);
-    const portraitMat = new THREE.MeshBasicMaterial({ map: portraitTex });
-    const portraitCanvasMesh = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 5.2), portraitMat);
-    portraitCanvasMesh.position.z = 0.2;
-    portraitCanvasMesh.userData = { interactType: 'portrait' };
-    portraitHolder.add(portraitCanvasMesh);
-    interactables.push(portraitCanvasMesh);
-    sceneObjectsRef.current.portraitMesh = portraitCanvasMesh;
+      // Picture plane (placeholder first, real photo swapped in once it loads)
+      const frameMat = new THREE.MeshBasicMaterial({
+        map: createMemoryFrameCanvasTexture(mem, null)
+      });
+      const canvasMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 3.5), frameMat);
+      canvasMesh.position.z = 0.12;
+      canvasMesh.userData = { interactType: 'memory', memoryIndex: index };
+      frameGroup.add(canvasMesh);
+      interactables.push(canvasMesh);
+      memoryMeshes.push(canvasMesh);
 
-    const defaultPortraitImg = new Image();
-    defaultPortraitImg.crossOrigin = 'anonymous';
-    defaultPortraitImg.onload = () => {
-      portraitMat.map = createRoyalPortraitTexture(defaultPortraitImg);
-      portraitMat.needsUpdate = true;
-    };
-    defaultPortraitImg.src = './photo6.jpg';
+      if (mem.imageUrl) {
+        const memImg = new Image();
+        memImg.onload = () => {
+          frameMat.map = createMemoryFrameCanvasTexture(mem, memImg);
+          frameMat.needsUpdate = true;
+        };
+        memImg.src = mem.imageUrl;
+      }
 
       // Dedicated Museum Picture Light above frame
       const lampBar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.4, 8), matGold);
@@ -1740,6 +1695,13 @@ export default function App() {
     portraitHolder.add(portraitCanvasMesh);
     interactables.push(portraitCanvasMesh);
     sceneObjectsRef.current.portraitMesh = portraitCanvasMesh;
+
+    const defaultPortraitImg = new Image();
+    defaultPortraitImg.onload = () => {
+      portraitMat.map = createRoyalPortraitTexture(defaultPortraitImg);
+      portraitMat.needsUpdate = true;
+    };
+    defaultPortraitImg.src = './photo6.jpg';
 
     // Dedicated warm spotlight on Shruti's Portrait
     const portraitSpot = new THREE.PointLight('#ffdf91', 2.2, 16);
@@ -2172,9 +2134,9 @@ export default function App() {
         if (hits.length > 0 && hits[0].distance < 24) {
           const data = hits[0].object.userData;
           if (data.interactType === 'grand_doors') {
-            handleOpenGrandDoors();
+            handlersRef.current.handleOpenGrandDoors();
           } else if (data.interactType === 'memory') {
-            focusMemoryFrame(data.memoryIndex);
+            handlersRef.current.focusMemoryFrame(data.memoryIndex);
           } else if (data.interactType === 'portrait') {
             if (audioRef.current) audioRef.current.playSparkle();
             setPortraitModalOpen(true);
@@ -2196,7 +2158,7 @@ export default function App() {
             setLetterModalOpen(true);
             flyCameraTo({ x: 0, y: 2.6, z: -85.2 }, { x: 0, y: 1.75, z: -88.5 }, 1300);
           } else if (data.interactType === 'crown') {
-            handleClaimCrown();
+            handlersRef.current.handleClaimCrown();
           }
         }
       }
@@ -2289,6 +2251,9 @@ export default function App() {
         camera.lookAt(currentLook);
 
         if (progress >= 1) {
+          const endEuler = new THREE.Euler().setFromQuaternion(camera.quaternion, 'YXZ');
+          sc.playerYaw = endEuler.y;
+          sc.playerPitch = endEuler.x;
           const cb = tw.onComplete;
           sc.cameraTween = null;
           if (cb) cb();
@@ -2438,12 +2403,7 @@ export default function App() {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
-  }, [
-    flyCameraTo,
-    focusMemoryFrame,
-    handleClaimCrown,
-    handleOpenGrandDoors
-  ]);
+  }, [flyCameraTo]);
 
   // Mobile Virtual Touch Pad Handler
   const setMobileMove = (forward, right) => {
@@ -2570,7 +2530,7 @@ export default function App() {
           CINEMATIC INTRO SUBTITLE OVERLAY (SCENE 1)
       ==================================================================== */}
       {stage === 'cinematic_intro' && (
-        <div className="pointer-events-none fixed inset-x-0 top-24 z-30 flex flex-col items-center text-center px-4 animate-fade-in">
+        <div className="pointer-events-none fixed inset-x-0 top-24 z-30 flex flex-col items-center text-center px-4">
           <p className="text-xs tracking-[0.35em] uppercase text-[#f3e5ab] mb-1 drop-shadow">
             THE GHANA REGENCY
           </p>
@@ -2798,6 +2758,7 @@ export default function App() {
                 <img
                   src={currentMemory.imageUrl}
                   alt={currentMemory.title}
+                  onError={handleImgError}
                   className="w-full h-72 sm:h-80 object-cover border border-[#d4af37] rounded-sm shadow-lg"
                 />
               ) : (
@@ -2908,6 +2869,7 @@ export default function App() {
                 <img
                   src={shrutiPortraitUrl}
                   alt="Princess Shruti Royal Portrait"
+                  onError={handleImgError}
                   className="w-full h-full object-cover"
                 />
               ) : (
@@ -3071,6 +3033,7 @@ export default function App() {
                 <img
                   src={shrutiPortraitUrl}
                   alt="Princess Shruti"
+                  onError={handleImgError}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -3283,7 +3246,7 @@ export default function App() {
       ==================================================================== */}
       {stage !== 'invitation' && (
         <nav className="fixed bottom-0 inset-x-0 z-30 bg-gradient-to-t from-[#160308] via-[#160308]/90 to-transparent py-2.5 px-3">
-          <div className="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto no-scrollbar">
+          <div className="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {SCENE_WAYPOINTS.map((wp) => {
               const isActive = activeWaypoint === wp.id;
               return (
