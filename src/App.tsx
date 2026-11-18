@@ -2462,7 +2462,7 @@ export default function App() {
             </button>
 
             <p className="mt-5 text-[11px] tracking-widest text-[#e8b4bc]/70 uppercase">
-              Best Experienced with Orchestral Sound Enabled
+              I hope your wait will worth it.
             </p>
           </div>
         </div>
