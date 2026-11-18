@@ -67,7 +67,7 @@ const INITIAL_MEMORIES = [
   {
     id: 4,
     code: 'MEMORY 04',
-    title: 'You are prettier than you realise.',
+    title: 'You are prettier than you realise."One thing I genuinely admire about you is your maturity. The way you understand things, handle situations and see beyond the obvious is something worth appreciating. You have a thoughtful side that makes you wiser than you probably give yourself credit for. Never lose that." 💗',
     subtitle: 'Chapter IV of the Royal Archives',
     caption:
       'And its not just about your appearance.',
