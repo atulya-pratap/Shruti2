@@ -2285,7 +2285,7 @@ export default function App() {
         if (!detected && Math.hypot(cx - 0, cz - -26) < 8.5) {
           detected = {
             type: 'portrait',
-            title: 'Every kingdom deserves its own masterpiece.',
+            title: 'Some princess do wear tikas.',
             subtitle: 'The Sovereign Portrait of Princess Shruti',
             buttonText: 'INSPECT ROYAL PORTRAIT'
           };
