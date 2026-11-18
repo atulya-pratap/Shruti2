@@ -882,10 +882,9 @@ export default function App() {
 
       if (waypointId === 'reveal') {
         setStage('final_reveal');
-      } else if (stage === 'final_reveal') {
+      } else {
         setStage('exploring');
       }
-
       setActiveWaypoint(waypointId);
       if (audioRef.current) audioRef.current.playSparkle();
 
