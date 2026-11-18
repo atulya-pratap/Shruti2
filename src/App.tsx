@@ -42,7 +42,7 @@ const INITIAL_MEMORIES = [
     viewPos: { x: -3.2, y: 4.4, z: 18 },
     themeColors: ['#4a0e1e', '#d4af37', '#f8bbd0'],
     motif: 'sunrise',
-    imageUrl: null
+    imageUrl: './photo1.jpg'
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const INITIAL_MEMORIES = [
     viewPos: { x: 3.2, y: 4.4, z: 12 },
     themeColors: ['#2c1810', '#e8b4bc', '#f3e5ab'],
     motif: 'stars',
-    imageUrl: null
+    imageUrl: './photo2.jpg'
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const INITIAL_MEMORIES = [
     viewPos: { x: -3.2, y: 4.4, z: 4 },
     themeColors: ['#3b0a18', '#f48fb1', '#fff8e7'],
     motif: 'treaty',
-    imageUrl: null
+    imageUrl: './photo3.jpg'
   },
   {
     id: 4,
@@ -84,7 +84,7 @@ const INITIAL_MEMORIES = [
     viewPos: { x: 3.2, y: 4.4, z: -4 },
     themeColors: ['#4a1525', '#d4af37', '#fce4ec'],
     motif: 'palace',
-    imageUrl: null
+    imageUrl: './photo4.jpg'
   },
   {
     id: 5,
@@ -98,7 +98,7 @@ const INITIAL_MEMORIES = [
     viewPos: { x: -3.2, y: 4.4, z: -11 },
     themeColors: ['#2a0812', '#e6c65a', '#f8bbd0'],
     motif: 'crown',
-    imageUrl: null
+    imageUrl: './photo5.jpg'
   }
 ];
 
