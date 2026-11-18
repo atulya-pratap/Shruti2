@@ -2921,7 +2921,7 @@ export default function App() {
                 Some people have a way of making even the simplest moments memorable. You're one of those people.
               </p>
               <p>
-                From your endless shades of pink to your brilliant little mind, from your quick answers to your wonderfully unpredictable conversations, there's always something that makes you unmistakably you.
+                From your thoughtful way of looking at things to your brilliant little mind, from your quick answers to your wonderfully unpredictable conversations, there's always something that makes you unmistakably you.
               </p>
               <p>
                 And honestly, a princess who doesn't even know when her own Princess Day is deserves a special announcement!
