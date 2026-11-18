@@ -205,17 +205,21 @@ class RoyalAudioEngine {
     this.masterGain = null;
     this.musicGain = null;
     this.sfxGain = null;
+    this.bgmAudio = null;
     this.isPlaying = false;
     this.isMuted = false;
     this.musicVolume = 0.55;
     this.sfxEnabled = true;
-    this.chordIndex = 0;
     this.loopTimer = null;
-    this.arpTimer = null;
     this.lastStepTime = 0;
   }
 
   init() {
+    if (!this.bgmAudio) {
+      this.bgmAudio = new Audio('./music.mp3');
+      this.bgmAudio.loop = true;
+      this.bgmAudio.volume = this.isMuted ? 0 : this.musicVolume;
+    }
     if (this.ctx) {
       if (this.ctx.state === 'suspended') {
         this.ctx.resume();
@@ -241,88 +245,18 @@ class RoyalAudioEngine {
 
   startMusic() {
     this.init();
-    if (!this.ctx || this.isPlaying) return;
+    if (this.isPlaying) return;
     this.isPlaying = true;
-
-    // Warm fairytale orchestral chord progression (Fmaj7 - Dm9 - Bbmaj7 - C13 - Am7 - Gm9)
-    const chords = [
-      [174.61, 220.0, 261.63, 329.63, 392.0], // Fmaj9
-      [146.83, 220.0, 261.63, 329.63, 440.0], // Dm9
-      [116.54, 174.61, 220.0, 293.66, 349.23], // Bbmaj7
-      [130.81, 196.0, 246.94, 293.66, 392.0]  // Cmaj9/G
-    ];
-
-    const arpeggios = [
-      [523.25, 659.25, 783.99, 1046.5, 783.99, 659.25],
-      [440.0, 523.25, 659.25, 880.0, 659.25, 523.25],
-      [466.16, 587.33, 698.46, 932.33, 698.46, 587.33],
-      [392.0, 523.25, 659.25, 783.99, 659.25, 523.25]
-    ];
-
-    const playWarmPadChord = () => {
-      if (!this.isPlaying || !this.ctx) return;
-      const now = this.ctx.currentTime;
-      const chord = chords[this.chordIndex % chords.length];
-
-      chord.forEach((freq, idx) => {
-        const osc = this.ctx.createOscillator();
-        const subOsc = this.ctx.createOscillator();
-        const filter = this.ctx.createBiquadFilter();
-        const env = this.ctx.createGain();
-
-        osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
-        subOsc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now);
-        subOsc.frequency.setValueAtTime(freq * 0.5, now);
-        // Gentle detune for lush orchestral string chorus
-        osc.detune.setValueAtTime((idx - 2) * 4, now);
-
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(950, now);
-
-        env.gain.setValueAtTime(0.0001, now);
-        env.gain.linearRampToValueAtTime(0.045 / chord.length, now + 1.8);
-        env.gain.exponentialRampToValueAtTime(0.0008, now + 5.8);
-
-        osc.connect(filter);
-        subOsc.connect(filter);
-        filter.connect(env);
-        env.connect(this.musicGain);
-
-        osc.start(now);
-        subOsc.start(now);
-        osc.stop(now + 6.0);
-        subOsc.stop(now + 6.0);
-      });
-
-      // Delicate harp / celesta notes
-      const arpNotes = arpeggios[this.chordIndex % arpeggios.length];
-      arpNotes.forEach((noteFreq, i) => {
-        const start = now + i * 0.85;
-        const osc = this.ctx.createOscillator();
-        const env = this.ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(noteFreq, start);
-
-        env.gain.setValueAtTime(0.0001, start);
-        env.gain.linearRampToValueAtTime(0.022, start + 0.04);
-        env.gain.exponentialRampToValueAtTime(0.0001, start + 1.9);
-
-        osc.connect(env);
-        env.connect(this.musicGain);
-        osc.start(start);
-        osc.stop(start + 2.0);
-      });
-
-      this.chordIndex++;
-    };
-
-    playWarmPadChord();
-    this.loopTimer = setInterval(playWarmPadChord, 5200);
+    if (this.bgmAudio) {
+      this.bgmAudio.play().catch(() => {});
+    }
   }
 
   setVolume(val) {
     this.musicVolume = val;
+    if (this.bgmAudio) {
+      this.bgmAudio.volume = this.isMuted ? 0 : val;
+    }
     if (this.musicGain && this.ctx) {
       this.musicGain.gain.setTargetAtTime(val, this.ctx.currentTime, 0.1);
     }
@@ -330,6 +264,10 @@ class RoyalAudioEngine {
 
   setMuted(muted) {
     this.isMuted = muted;
+    if (this.bgmAudio) {
+      this.bgmAudio.muted = muted;
+      this.bgmAudio.volume = muted ? 0 : this.musicVolume;
+    }
     if (this.masterGain && this.ctx) {
       this.masterGain.gain.setTargetAtTime(muted ? 0 : 1, this.ctx.currentTime, 0.1);
     }
