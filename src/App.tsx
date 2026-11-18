@@ -2285,7 +2285,7 @@ export default function App() {
         if (!detected && Math.hypot(cx - 0, cz - -26) < 8.5) {
           detected = {
             type: 'portrait',
-            title: 'Some princess do wear tikas.',
+            title: 'Some princess wear tikas too.',
             subtitle: 'The Sovereign Portrait of Princess Shruti',
             buttonText: 'INSPECT ROYAL PORTRAIT'
           };
@@ -2803,7 +2803,7 @@ export default function App() {
               THE ROYAL PORTRAIT HALL
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-[#f3e5ab] italic mb-5">
-              "Some princess wear tikas."
+              "Some princess wear tikas too."
             </h3>
 
             <div className="mx-auto w-60 h-72 sm:w-64 sm:h-80 border-4 border-[#d4af37] bg-[#3b0a18] rounded-sm overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.3)] mb-5 flex items-center justify-center">
