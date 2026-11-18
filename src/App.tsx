@@ -26,6 +26,79 @@ import {
   Move
 } from 'lucide-react';
 
+const INITIAL_MEMORIES = [
+  {
+    id: 1,
+    code: 'MEMORY 01',
+    title: 'A BEAUTIFUL BEGINNING',
+    subtitle: 'Chapter I of the Royal Archives',
+    caption:
+      'Every fairytale has a moment where the light changes and an ordinary day quietly becomes unforgettable. Your warmth and grace turned the very first chapter into pure magic.',
+    date: 'The First Royal Chronicle',
+    position: { x: -8.6, y: 4.5, z: 18, rotY: Math.PI / 2 },
+    viewPos: { x: -3.2, y: 4.4, z: 18 },
+    themeColors: ['#4a0e1e', '#d4af37', '#f8bbd0'],
+    motif: 'sunrise',
+    imageUrl: './photo1.jpg'
+  },
+  {
+    id: 2,
+    code: 'MEMORY 02',
+    title: 'LITTLE MOMENTS',
+    subtitle: 'Chapter II of the Royal Archives',
+    caption:
+      'It is never just the grand banquets that define a kingdom—it is the spontaneous laughter, the shared glances, and the tiny everyday moments that shine brighter than gold.',
+    date: 'Golden Afternoon Echoes',
+    position: { x: 8.6, y: 4.5, z: 12, rotY: -Math.PI / 2 },
+    viewPos: { x: 3.2, y: 4.4, z: 12 },
+    themeColors: ['#2c1810', '#e8b4bc', '#f3e5ab'],
+    motif: 'stars',
+    imageUrl: './photo2.jpg'
+  },
+  {
+    id: 3,
+    code: 'MEMORY 03',
+    title: 'THE ICE CREAM TREATY',
+    subtitle: 'Chapter III of the Royal Archives',
+    caption:
+      'Ratified under the highest royal authority: no matter how busy or chaotic the world becomes, an impromptu treaty sealed with sweet ice cream restores peace and joy immediately.',
+    date: 'The Sweetest Decree',
+    position: { x: -8.6, y: 4.5, z: 4, rotY: Math.PI / 2 },
+    viewPos: { x: -3.2, y: 4.4, z: 4 },
+    themeColors: ['#3b0a18', '#f48fb1', '#fff8e7'],
+    motif: 'treaty',
+    imageUrl: './photo3.jpg'
+  },
+  {
+    id: 4,
+    code: 'MEMORY 04',
+    title: 'THE UNFORGETTABLE DAYS',
+    subtitle: 'Chapter IV of the Royal Archives',
+    caption:
+      'Sunlit adventures, endless conversations, and memories etched into time. Whenever the palace halls grow quiet, these are the days that fill the kingdom with music.',
+    date: 'Timeless Horizons',
+    position: { x: 8.6, y: 4.5, z: -4, rotY: -Math.PI / 2 },
+    viewPos: { x: 3.2, y: 4.4, z: -4 },
+    themeColors: ['#4a1525', '#d4af37', '#fce4ec'],
+    motif: 'palace',
+    imageUrl: './photo4.jpg'
+  },
+  {
+    id: 5,
+    code: 'MEMORY 05',
+    title: 'A MEMORY TO KEEP',
+    subtitle: 'Chapter V of the Royal Archives',
+    caption:
+      'Preserved forever in the heart of the palace. Through every season ahead, may you always remember how deeply cherished, admired, and celebrated you truly are.',
+    date: 'Forever & Always',
+    position: { x: -8.6, y: 4.5, z: -11, rotY: Math.PI / 2 },
+    viewPos: { x: -3.2, y: 4.4, z: -11 },
+    themeColors: ['#2a0812', '#e6c65a', '#f8bbd0'],
+    motif: 'crown',
+    imageUrl: './photo5.jpg'
+  }
+];
+
 // ============================================================================
 // DEFAULT ROYAL DATA — MEMORIES, PLAQUES & INITIAL PLACEHOLDER ARTWORK
 // ============================================================================
