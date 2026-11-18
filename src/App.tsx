@@ -787,8 +787,8 @@ export default function App() {
 
   // Customizable Memories & Shruti's Portrait State
   const [memories, setMemories] = useState(INITIAL_MEMORIES);
-  const [shrutiPortraitUrl, setShrutiPortraitUrl] = useState(null);
-
+  const [shrutiPortraitUrl, setShrutiPortraitUrl] = useState('./photo6.jpg');
+  
   // Audio State
   const [isMuted, setIsMuted] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.55);
@@ -1594,15 +1594,22 @@ export default function App() {
       outerGold.castShadow = true;
       frameGroup.add(outerGold);
 
-      // Inner artwork canvas plane
-      const tex = createMemoryFrameCanvasTexture(mem, null);
-      const artMat = new THREE.MeshBasicMaterial({ map: tex });
-      const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.75, 3.55), artMat);
-      artMesh.position.z = 0.13;
-      artMesh.userData = { interactType: 'memory', memoryIndex: index };
-      frameGroup.add(artMesh);
-      interactables.push(artMesh);
-      memoryMeshes.push(artMesh);
+     const portraitTex = createRoyalPortraitTexture(null);
+    const portraitMat = new THREE.MeshBasicMaterial({ map: portraitTex });
+    const portraitCanvasMesh = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 5.2), portraitMat);
+    portraitCanvasMesh.position.z = 0.2;
+    portraitCanvasMesh.userData = { interactType: 'portrait' };
+    portraitHolder.add(portraitCanvasMesh);
+    interactables.push(portraitCanvasMesh);
+    sceneObjectsRef.current.portraitMesh = portraitCanvasMesh;
+
+    const defaultPortraitImg = new Image();
+    defaultPortraitImg.crossOrigin = 'anonymous';
+    defaultPortraitImg.onload = () => {
+      portraitMat.map = createRoyalPortraitTexture(defaultPortraitImg);
+      portraitMat.needsUpdate = true;
+    };
+    defaultPortraitImg.src = './photo6.jpg';
 
       // Dedicated Museum Picture Light above frame
       const lampBar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.4, 8), matGold);
