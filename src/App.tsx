@@ -2716,10 +2716,13 @@ export default function App() {
             </blockquote>
             <p className="text-xs text-[#e8b4bc] italic mb-6">{activePlaque.subtext}</p>
             <button
-              onClick={() => setActivePlaque(null)}
+              onClick={() => {
+                setActivePlaque(null);
+                navigateToWaypoint('letter');
+              }}
               className="px-6 py-2.5 bg-[#d4af37] text-[#1a040a] font-bold text-xs tracking-[0.2em] uppercase rounded-sm hover:bg-[#f3e5ab] transition cursor-pointer"
             >
-              Continue Through Garden
+              Go to the Letter →
             </button>
           </div>
         </div>
