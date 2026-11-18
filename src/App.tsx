@@ -2918,21 +2918,19 @@ export default function App() {
             <div className="space-y-4 text-base sm:text-lg leading-relaxed font-serif text-[#2c1810]">
               <p className="font-bold text-xl text-[#4a0e1e]">Dear Shruti,</p>
               <p>
-                Some people don't need a crown to make a place feel like a kingdom.
+                Some people have a way of making even the simplest moments memorable. You're one of those people.
               </p>
               <p>
-                They have their own little magic, their own personality, and a way of making
-                ordinary moments memorable.
+                From your endless shades of pink to your brilliant little mind, from your quick answers to your wonderfully unpredictable conversations, there's always something that makes you unmistakably you.
               </p>
               <p>
-                So today, this little kingdom has something to announce.
+                And honestly, a princess who doesn't even know when her own Princess Day is deserves a special announcement!
               </p>
               <p className="font-bold text-[#7a091e] text-xl py-1">
                 Happy Princess Day, Your Highness.
               </p>
               <p>
-                May your days be filled with beautiful moments, endless laughter, unexpected
-                adventures, and all the happiness you deserve.
+                May you always have reasons to smile, dreams worth chasing, adventures worth remembering, and people who remind you how wonderful you are.
               </p>
               <div className="pt-4 text-right">
                 <p className="italic text-[#5c3a21]">With royal regards,</p>
