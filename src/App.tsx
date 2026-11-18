@@ -2642,52 +2642,63 @@ export default function App() {
       {/* ====================================================================
           MOBILE / TOUCH VIRTUAL JOYSTICK D-PAD (BOTTOM LEFT)
       ==================================================================== */}
-      {stage === 'exploring' && (
-        <div className="fixed bottom-20 left-4 z-30 flex flex-col items-center gap-1 sm:opacity-80 hover:opacity-100">
+      {stage !== 'invitation' && stage !== 'final_reveal' && (
+        <div
+          style={{ touchAction: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}
+          onContextMenu={(e) => e.preventDefault()}
+          className="fixed bottom-14 left-3 z-40 flex flex-col items-center gap-1.5 pointer-events-auto"
+        >
           <button
-            onPointerDown={() => setMobileMove(1, 0)}
+            type="button"
+            onPointerDown={(e) => { e.preventDefault(); setMobileMove(1, 0); }}
             onPointerUp={() => setMobileMove(0, 0)}
+            onPointerCancel={() => setMobileMove(0, 0)}
             onPointerLeave={() => setMobileMove(0, 0)}
-            className="w-9 h-9 rounded-sm bg-[#24050e]/85 border border-[#d4af37]/60 flex items-center justify-center text-[#f3e5ab] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+            className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
             title="Walk Forward (W)"
           >
             ▲
           </button>
-          <div className="flex gap-1">
+          <div className="flex gap-1.5">
             <button
-              onPointerDown={() => setMobileMove(0, -1)}
+              type="button"
+              onPointerDown={(e) => { e.preventDefault(); setMobileMove(0, -1); }}
               onPointerUp={() => setMobileMove(0, 0)}
+              onPointerCancel={() => setMobileMove(0, 0)}
               onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-9 h-9 rounded-sm bg-[#24050e]/85 border border-[#d4af37]/60 flex items-center justify-center text-[#f3e5ab] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
               title="Step Left (A)"
             >
               ◀
             </button>
             <button
-              onPointerDown={() => setMobileMove(-1, 0)}
+              type="button"
+              onPointerDown={(e) => { e.preventDefault(); setMobileMove(-1, 0); }}
               onPointerUp={() => setMobileMove(0, 0)}
+              onPointerCancel={() => setMobileMove(0, 0)}
               onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-9 h-9 rounded-sm bg-[#24050e]/85 border border-[#d4af37]/60 flex items-center justify-center text-[#f3e5ab] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
               title="Walk Backward (S)"
             >
               ▼
             </button>
             <button
-              onPointerDown={() => setMobileMove(0, 1)}
+              type="button"
+              onPointerDown={(e) => { e.preventDefault(); setMobileMove(0, 1); }}
               onPointerUp={() => setMobileMove(0, 0)}
+              onPointerCancel={() => setMobileMove(0, 0)}
               onPointerLeave={() => setMobileMove(0, 0)}
-              className="w-9 h-9 rounded-sm bg-[#24050e]/85 border border-[#d4af37]/60 flex items-center justify-center text-[#f3e5ab] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
+              className="w-11 h-11 rounded-sm bg-[#24050e]/95 border-2 border-[#d4af37] flex items-center justify-center text-base text-[#f3e5ab] shadow-[0_0_15px_rgba(0,0,0,0.9)] active:bg-[#d4af37] active:text-[#24050e] cursor-pointer"
               title="Step Right (D)"
             >
               ▶
             </button>
           </div>
-          <span className="text-[10px] tracking-widest uppercase text-[#f3e5ab]/70 mt-0.5">
-            WASD / Drag Look
+          <span className="text-[10px] tracking-widest uppercase text-[#f3e5ab] bg-[#1a040a]/80 px-1.5 py-0.5 rounded">
+            Move / Drag Look
           </span>
         </div>
       )}
-
       {/* ====================================================================
           SCENE 4 MODAL — THE ROYAL GALLERY OF MEMORIES CARD VIEWER
       ==================================================================== */}
