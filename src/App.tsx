@@ -53,7 +53,7 @@ const INITIAL_MEMORIES = [
   {
     id: 3,
     code: 'MEMORY 03',
-    title: 'THE ICE CREAM TREATY',
+    title: 'YOU ARE BEAUTIFUL,INSIDE AND OUTSIDE👑',
     subtitle: 'Chapter III of the Royal Archives',
     caption:
       'Ratified under the highest royal authority: no matter how busy or chaotic the world becomes, an impromptu treaty sealed with sweet ice cream restores peace and joy immediately.',
@@ -61,7 +61,7 @@ const INITIAL_MEMORIES = [
     position: { x: -8.6, y: 4.5, z: 4, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: 4 },
     themeColors: ['#3b0a18', '#f48fb1', '#fff8e7'],
-    motif: 'treaty',
+    motif: 'beautiful',
     imageUrl: './photo3.jpg'
   },
   {
