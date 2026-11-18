@@ -128,7 +128,7 @@ const SCENE_WAYPOINTS = [
     shortLabel: 'Exterior',
     pos: { x: 0, y: 3.6, z: 72 },
     lookAt: { x: 0, y: 7.5, z: 32 },
-    description: 'The Grand Courtyard of The Ghana Regency at golden sunset.'
+    description: 'The Grand Courtyard of The Disney Regency at golden sunset.'
   },
   {
     id: 'entrance',
@@ -2360,7 +2360,7 @@ export default function App() {
     return (
       <div className="min-h-screen bg-[#24050e] text-[#fdfbf7] flex flex-col items-center justify-center p-8 text-center font-serif">
         <Crown className="w-16 h-16 text-[#d4af37] mb-4" />
-        <h1 className="text-3xl font-bold text-[#f3e5ab] mb-2">THE GHANA REGENCY</h1>
+        <h1 className="text-3xl font-bold text-[#f3e5ab] mb-2">THE DISNEY REGENCY</h1>
         <p className="max-w-md text-[#e8b4bc]">
           Happy Princess Day, Your Highness Shruti! Please enable hardware acceleration (WebGL) in
           your browser to explore your 3D Royal Palace.
@@ -2432,7 +2432,7 @@ export default function App() {
               A Royal Princess Day Dedication
             </p>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-[0.14em] text-[#f3e5ab] mb-2">
-              THE GHANA REGENCY
+              THE DISNEY REGENCY
             </h1>
             <p className="text-lg sm:text-xl italic text-[#d8a7b1] mb-8">
               A Royal Experience for Princess Shruti
@@ -2474,7 +2474,7 @@ export default function App() {
       {stage === 'cinematic_intro' && (
         <div className="pointer-events-none fixed inset-x-0 top-24 z-30 flex flex-col items-center text-center px-4">
           <p className="text-xs tracking-[0.35em] uppercase text-[#f3e5ab] mb-1 drop-shadow">
-            THE GHANA REGENCY
+            THE DISNEY REGENCY
           </p>
           <h2 className="text-2xl sm:text-3xl italic text-[#fdfbf7] drop-shadow-lg">
             Preparing your palace...
@@ -2494,7 +2494,7 @@ export default function App() {
             </div>
             <div>
               <div className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#f3e5ab] uppercase">
-                The Ghana Regency
+                The Disney Regency
               </div>
               <div className="text-[11px] text-[#e8b4bc] italic hidden sm:block">
                 {SCENE_WAYPOINTS.find((w) => w.id === activeWaypoint)?.description}
@@ -3006,7 +3006,7 @@ export default function App() {
             </div>
 
             <p className="text-xs sm:text-sm tracking-[0.4em] uppercase text-[#e8b4bc] mb-2">
-              THE GHANA REGENCY PROCLAIMS
+              THE DISNEY REGENCY PROCLAIMS
             </p>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-[0.12em] text-[#f3e5ab] mb-2">
               HAPPY PRINCESS DAY
