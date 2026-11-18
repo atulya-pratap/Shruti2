@@ -2047,27 +2047,33 @@ export default function App() {
       keysPressed[e.code] = false;
     };
 
+    renderer.domElement.style.touchAction = 'none';
+    let activePointerId = null;
     let pointerDownPos = { x: 0, y: 0 };
     let lastPointerPos = { x: 0, y: 0 };
 
     const handlePointerDown = (e) => {
       if (e.target !== renderer.domElement) return;
       sceneObjectsRef.current.isDraggingLook = true;
+      activePointerId = e.pointerId;
       pointerDownPos = { x: e.clientX, y: e.clientY };
       lastPointerPos = { x: e.clientX, y: e.clientY };
     };
 
     const handlePointerMove = (e) => {
-      if (!sceneObjectsRef.current.isDraggingLook) return;
+      if (!sceneObjectsRef.current.isDraggingLook || e.pointerId !== activePointerId) return;
       const dx = e.clientX - lastPointerPos.x;
       const dy = e.clientY - lastPointerPos.y;
       lastPointerPos = { x: e.clientX, y: e.clientY };
 
-      const sc = sceneObjectsRef.current;
-      sc.playerYaw -= dx * 0.0032;
-      sc.playerPitch = Math.max(-0.55, Math.min(0.55, sc.playerPitch - dy * 0.0025));
-    };
+      const isTouch = e.pointerType === 'touch';
+      const yawSpeed = isTouch ? 0.0095 : 0.0032;
+      const pitchSpeed = isTouch ? 0.007 : 0.0025;
 
+      const sc = sceneObjectsRef.current;
+      sc.playerYaw -= dx * yawSpeed;
+      sc.playerPitch = Math.max(-0.55, Math.min(0.55, sc.playerPitch - dy * pitchSpeed));
+    };
     const raycaster = new THREE.Raycaster();
     const mouseVec = new THREE.Vector2();
 
@@ -2389,7 +2395,8 @@ export default function App() {
       ==================================================================== */}
       <div
         ref={mountRef}
-        className={`w-full h-full transition-all duration-700 ${
+        style={{ touchAction: 'none' }}
+        className={`w-full h-full touch-none transition-all duration-700 ${
           activeMemoryIndex !== null ||
           portraitModalOpen ||
           activePlaque !== null ||
