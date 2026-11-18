@@ -25,10 +25,10 @@ const INITIAL_MEMORIES = [
   {
     id: 1,
     code: 'MEMORY 01',
-    title: 'A BEAUTIFUL BEGINNING',
+    title: 'Your smile is contagious.',
     subtitle: 'Chapter I of the Royal Archives',
     caption:
-      'Every fairytale has a moment where the light changes and an ordinary day quietly becomes unforgettable. Your warmth and grace turned the very first chapter into pure magic.',
+      'ou have a way of making ordinary moments feel special.',
     date: 'The First Royal Chronicle',
     position: { x: -8.6, y: 4.5, z: 18, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: 18 },
@@ -39,10 +39,10 @@ const INITIAL_MEMORIES = [
   {
     id: 2,
     code: 'MEMORY 02',
-    title: 'LITTLE MOMENTS',
+    title: 'You are incredibly intelligent.',
     subtitle: 'Chapter II of the Royal Archives',
     caption:
-      'It is never just the grand banquets that define a kingdom—it is the spontaneous laughter, the shared glances, and the tiny everyday moments that shine brighter than gold.',
+      'Never forget how brilliant that mind of yours is.',
     date: 'Golden Afternoon Echoes',
     position: { x: 8.6, y: 4.5, z: 12, rotY: -Math.PI / 2 },
     viewPos: { x: 3.2, y: 4.4, z: 12 },
@@ -53,10 +53,10 @@ const INITIAL_MEMORIES = [
   {
     id: 3,
     code: 'MEMORY 03',
-    title: 'YOU ARE BEAUTIFUL,INSIDE AND OUTSIDE👑',
+    title: 'You are a whole princess.',
     subtitle: 'Chapter III of the Royal Archives',
     caption:
-      'Ratified under the highest royal authority: no matter how busy or chaotic the world becomes, an impromptu treaty sealed with sweet ice cream restores peace and joy immediately.',
+      'A little sass, a lot of grace, and endless charm. 👑',
     date: 'The Sweetest Decree',
     position: { x: -8.6, y: 4.5, z: 4, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: 4 },
@@ -67,10 +67,10 @@ const INITIAL_MEMORIES = [
   {
     id: 4,
     code: 'MEMORY 04',
-    title: 'THE UNFORGETTABLE DAYS',
+    title: 'You are prettier than you realise.',
     subtitle: 'Chapter IV of the Royal Archives',
     caption:
-      'Sunlit adventures, endless conversations, and memories etched into time. Whenever the palace halls grow quiet, these are the days that fill the kingdom with music.',
+      'And its not just about your appearance.',
     date: 'Timeless Horizons',
     position: { x: 8.6, y: 4.5, z: -4, rotY: -Math.PI / 2 },
     viewPos: { x: 3.2, y: 4.4, z: -4 },
@@ -81,10 +81,10 @@ const INITIAL_MEMORIES = [
   {
     id: 5,
     code: 'MEMORY 05',
-    title: 'A MEMORY TO KEEP',
+    title: 'You are effortlessly charming.',
     subtitle: 'Chapter V of the Royal Archives',
     caption:
-      'Preserved forever in the heart of the palace. Through every season ahead, may you always remember how deeply cherished, admired, and celebrated you truly are.',
+      'You dont even realise how lovely your presence is.',
     date: 'Forever & Always',
     position: { x: -8.6, y: 4.5, z: -12.5, rotY: Math.PI / 2 },
     viewPos: { x: -3.2, y: 4.4, z: -12.5 },
